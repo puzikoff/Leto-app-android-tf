@@ -35,14 +35,9 @@ public class CardManagementTab extends AppScreenBase{
 		verify.assertAll();				
 	}
 	
-	public void blockFundsSwitchClick() {
-		waitFor(blockFundsSwitch);
+	public void blockFundsSwitchClick() {		
 		Log.info("Card screen, Management Tab: Block funds switch click");
-		findElement(blockFundsSwitch, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(blockFundsSwitch);	
 	}
 	
 	public void connectingServiceHistoryBtnClick() {
