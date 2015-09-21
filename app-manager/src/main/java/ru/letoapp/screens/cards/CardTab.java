@@ -55,8 +55,7 @@ public class CardTab extends AppScreenBase{
 		Log.info("Card screen, Card Tab: mandatory payment click");
 		if(isMandatoryPaymentClickable()) {
 			Log.info("Card screen, Card Tab: mandatory payment clickable");
-			findElement(mandatoryPayment, driver).click();
-			delay();
+			click(mandatoryPayment);
 		}
 		else{
 			Log.info("Card screen, Card Tab: mandatory payment is not clickable");

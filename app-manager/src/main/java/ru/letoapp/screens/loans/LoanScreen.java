@@ -57,20 +57,17 @@ public class LoanScreen extends AppScreenBase{
 	
 	public void infoTabClick() {
 		Log.info("Loan Screen: Information tab click");
-		findElement(infoTabBtn, driver).click();
-		delay();
+		click(infoTabBtn);
 	}
 
 	public void managementTabClick() {
 		Log.info("Loan Screen: Managementd tab click");
-		findElement(managementTabBtn, driver).click();
-		delay();		
+		click(managementTabBtn);		
 	}
 	
 	public void paymentTabClick() {
 		Log.info("Loan Screen: Payment tab click");
-		findElement(paymentTabBtn, driver).click();
-		delay();
+		click(paymentTabBtn);
 	}
 	
 	public void waitForVanishUpdateIndicator() {

@@ -47,7 +47,7 @@ public class WithdrawMoneyInATMScreen extends AppScreenBase {
 	public boolean isLoadingErrorExist() {		
 		if(findElement(errorLoading, driver) != null){
 			Log.error("QR code screen: Loading ERROR");
-			takeScreenshot();
+			//takeScreenshot();
 			return true;
 		}
 		else return false;		

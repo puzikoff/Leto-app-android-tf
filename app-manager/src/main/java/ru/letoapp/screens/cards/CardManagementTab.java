@@ -40,31 +40,24 @@ public class CardManagementTab extends AppScreenBase{
 		clickAndWaitSpinerToVanish(blockFundsSwitch);	
 	}
 	
-	public void connectingServiceHistoryBtnClick() {
-		waitFor(connectingServiceHistoryBtn);
+	public void connectingServiceHistoryBtnClick() {		
 		Log.info("Card screen, Management Tab: Connecting services history button click");
-		findElement(connectingServiceHistoryBtn, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(connectingServiceHistoryBtn);	
 	}
 	
-	public void howWorksBlockFundsBtnClick() {
-		waitFor(howWorksBlockFundsBtn);
-		Log.info("Card screen, management Tab: How works block funds click");
-		findElement(howWorksBlockFundsBtn, driver).click();
-		delay();		
+	public void howWorksBlockFundsBtnClick() {		
+		Log.info("Card screen, management Tab: How works block funds click");		
+		click(howWorksBlockFundsBtn);		
 	}
 	
 	public void changePayDateWidgetArrowClick() {
 		Log.info("Card screen, management tab: change payment date widget arrow click");
-		findElement(changePayDateWidgetArrow, driver).click();
+		click(changePayDateWidgetArrow);
 	}
 	
 	public void repaymentWidgetArrowClick() {
 		Log.info("Card screen, management tab: repayment widget arrow click");
-		findElement(repaymentWidgetArrow, driver).click();
+		click(repaymentWidgetArrow);
 	}
 	
 	public boolean isChangePaymentBtnDisplayed() {		
@@ -80,17 +73,12 @@ public class CardManagementTab extends AppScreenBase{
 	
 	public void changePaymentDateBtnClick() {
 		Log.info("Card screen, management tab: change payment date btn click");
-		findElement(changePaymentDateBtn, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }				
+		clickAndWaitSpinerToVanish(changePaymentDateBtn);
 	}
 	
 	public void repaymentBtnClick() {
 		Log.info("Card screen, management tab: repayment btn click");
-		findElement(repaymentBtn, driver).click();
-		delay();						
+		click(repaymentBtn);						
 	}
 
 }

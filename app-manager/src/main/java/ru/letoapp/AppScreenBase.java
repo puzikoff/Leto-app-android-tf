@@ -105,7 +105,7 @@ public class AppScreenBase extends ScreenBase {
 					{
 						Log.error("Error popup displayed");			
 						Log.error(findElement(errorPopupMessageLocator, driver).getText());				
-						takeScreenshot();
+						takeScreenshot("Error Popup");
 						findElement(popupNextBtn, driver).click();
 						return true; 
 					}			
@@ -234,6 +234,12 @@ public class AppScreenBase extends ScreenBase {
     {       
 		Log.info("Taking screenshot");
 		ScreenshotMaker.takeScreenshot(driver);
+    }
+	
+	public void takeScreenshot(String name)
+    {       
+		Log.info("Taking screenshot");
+		ScreenshotMaker.takeScreenshot(name, driver);
     }
 
 }

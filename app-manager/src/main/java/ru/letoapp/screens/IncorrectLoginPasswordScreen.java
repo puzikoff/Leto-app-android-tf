@@ -33,21 +33,17 @@ public class IncorrectLoginPasswordScreen extends AppScreenBase{
 		verify.assertEquals(findElement(resetTip, driver).getText(), resetTipText, "Reset credentials tip");		
 		verify.assertEquals(findElement(resetTip2, driver).getText(), resetTip2Text, "Reset credentials tip 2");		
 		verify.assertEquals(findElement(resetCredentialsBtn, driver).getText(), resetCredentialsBtnText, "Reset credentials button");		
-		verify.assertAll();
+		verify.assertAll();		
 	}
 
-	public void tryAgainBtnClick() {
-		waitForClickable(tryAgainBtn);
+	public void tryAgainBtnClick() {		
 		Log.info("Incorrect Login or Password Screen: Try again button click");
-		findElement(tryAgainBtn, driver).click();	
-		delay();
+		click(tryAgainBtn);
 	}
 	
 	public void resetCredentialsBtnClick() {
-		waitForClickable(resetCredentialsBtn);
 		Log.info("Incorrect Login or Password Screen: Reset credentials button click");
-		findElement(resetCredentialsBtn, driver).click();	
-		delay();		
+		click(resetCredentialsBtn);				
 	}
 
 }

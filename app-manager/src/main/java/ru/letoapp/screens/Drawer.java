@@ -20,25 +20,19 @@ public class Drawer extends ScreenBase{
 		super(driver);		
 	}
 	
-	public void contactsBtnClick() {
-		waitFor(contactsBtn);
+	public void contactsBtnClick() {		
 		Log.info("Drawer: Contacts button click");
-		findElement(contactsBtn, driver).click();
-		delay();
+		click(contactsBtn);
 	}
 	
-	public void aboutBankBtnClick() {
-		waitFor(aboutBankBtn);
+	public void aboutBankBtnClick() {		
 		Log.info("Drawer: About bank button click");
-		findElement(aboutBankBtn, driver).click();
-		delay();
+		click(aboutBankBtn);
 	}
 	
-	public void exitBtnClick() {
-		waitFor(exitBtn);
+	public void exitBtnClick() {		
 		Log.info("Drawer: Exit button click");
-		findElement(exitBtn, driver).click();
-		delay();
+		click(exitBtn);
 	}
 	
 	public boolean isExitButtonVisible() {		
@@ -52,10 +46,14 @@ public class Drawer extends ScreenBase{
 	}
 
 	public boolean isTemplateDisplayed(String templateName) {
-		if(findElement(By.xpath("//TextView[@value='" + templateName + "']"), driver).isDisplayed())
+		if(findElement(By.xpath("//TextView[@value='" + templateName + "']"), driver).isDisplayed()) {
+			Log.info("Drawer: Template '" + templateName + "' exist");
 			return true;
-		else
+		}
+		else {
+			Log.info("Drawer: No template '" + templateName + "' in drawer");
 			return false;
+		}
 	}
 
 }

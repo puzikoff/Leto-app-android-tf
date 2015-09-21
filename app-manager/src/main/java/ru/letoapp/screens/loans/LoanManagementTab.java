@@ -35,13 +35,9 @@ public class LoanManagementTab extends AppScreenBase{
 	public void serviceDetailsClick(String serviceName){
 		Log.info("Loan management tab: " + serviceName + " detailes click");
 		if(findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView"), driver) != null) {
-			findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView"), driver).click();
+			click(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView"));
 			if(findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../..//TextView[@id='label_pressable_caption']"), driver).isDisplayed()) {				
-				findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../..//TextView[@id='label_pressable_caption']"), driver).click();
-				delay();
-				if(isWaitPopupDisplayed()) {
-					waitForVanishWaitPopup();
-				}
+				clickAndWaitSpinerToVanish(By.xpath("//TextView[@value='" + serviceName + "']/../../..//TextView[@id='label_pressable_caption']"));				
 			}
 			else {
 				Log.info("Loan management tab: " + serviceName + " connected");

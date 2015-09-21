@@ -16,8 +16,7 @@ public class ResetSecurityCodeScreen extends AppScreenBase{
 	
 	public void resetSecurityCodeBtnClick() {
 		Log.info("Reset Security Code Screen: Reset security code button click");
-		findElement(resetSecurityCodeBtn, driver).click();
-		delay();
+		click(resetSecurityCodeBtn);
 	}
 
 }
