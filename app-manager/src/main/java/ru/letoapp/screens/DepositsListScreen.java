@@ -35,7 +35,7 @@ public class DepositsListScreen extends AppScreenBase{
 		}
 		else {
 			Log.error("Deposits list: No deposit with such name");
-			Assert.fail();
+			Assert.fail("Deposits list: No deposit with such name");
 		}
 	}
 

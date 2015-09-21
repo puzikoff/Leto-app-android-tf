@@ -14,7 +14,6 @@ public class WhatIfScreen extends AppScreenBase{
 	}
 	
 	String titleText = "Что, если?..";
-
 	
 	/*-- Loan widgets --*/
 	By payMoreWidget = By.xpath("//CollapsibleActionView_[@id='widget_what_if_pay_more']//ImageView[@id='image_static_block_indicator']");
@@ -102,58 +101,63 @@ public class WhatIfScreen extends AppScreenBase{
 		verify.assertAll();		
 	}
 	
+	public void verifyDepositWhatIfScreen() {
+		verify.assertEquals(getTitleFromActionBar(), titleText, "Title");
+		verify.assertAll();		
+	}
+	
 	/* ------ Card widgets ------------*/
 	
 	public void whatIfCardLostWidgetClick(){
 		Log.info("What if screen: what if card lost widget click");
-		findElement(whatIfCardLostWidget, driver).click();
+		click(whatIfCardLostWidget);
 	}
 	
 	public void whatIfCardBrokenWidgetClick(){
 		Log.info("What if screen: what if card broken widget click");
-		findElement(whatIfCardBrokenWidget, driver).click();
+		click(whatIfCardBrokenWidget);
 	}
 	
 	public void whatIfCardAbroadWidgetClick(){
 		Log.info("What if screen: what if card abroad widget click");
-		findElement(whatIfCardAbroadWidget, driver).click();
+		click(whatIfCardAbroadWidget);
 	}
 	
 	public void whatIfNoAdditionWidgetClick(){
 		Log.info("What if screen: what if no addition widget click");
-		findElement(whatIfNoAdditionWidget, driver).click();
+		click(whatIfNoAdditionWidget);
 	}
 	
 	public void whatIfForgotPINWidgetClick(){
 		Log.info("What if screen: what if forgot PIN widget click");
-		findElement(whatIfForgotPINWidget, driver).click();
+		click(whatIfForgotPINWidget);
 	}
 	
 	public void whatIfCardNotReturnedWidgetClick(){
 		Log.info("What if screen: what if card not returned widget click");
-		findElement(whatIfCardNotReturnedWidget, driver).click();
+		click(whatIfCardNotReturnedWidget);
 	}
 		
 	/* ------ Loan widgets ------------*/
 	
 	public void payLessWidgetClick(){
 		Log.info("What if screen: Pay less widget click");
-		findElement(payLessWidget, driver).click();
+		click(payLessWidget);
 	}
 			
 	public void insuranceCaseWidgetClick(){
 		Log.info("What if screen: Insurance case widget click");
-		findElement(insuranceCaseWidget, driver).click();
+		click(insuranceCaseWidget);
 	}
 	
 	public void dismissPaymentWidgetClick(){
 		Log.info("What if screen: Dismiss payment widget click");
-		findElement(skipPaymentWidget, driver).click();
+		click(skipPaymentWidget);
 	}
 	
 	public void decreasePaymentWidgetClick(){
 		Log.info("What if screen: Decrease payment widget click");
-		findElement(reducePaymentWidget, driver).click();
+		click(reducePaymentWidget);
 	}
 		
 	public void payAllClick() {
@@ -161,11 +165,7 @@ public class WhatIfScreen extends AppScreenBase{
 		findElement(payAllWidget, driver).click();
 		if(findElement(payAll, driver) != null) {			
 			Log.info("What if screen: Pay all click");
-			findElement(payAll, driver).click();
-			delay();		
-			if(isWaitPopupDisplayed()) {
-				waitForVanishWaitPopup();
-			}
+			clickAndWaitSpinerToVanish(payAll);			
 		}
 		else {
 			Log.info("What if screen: Full repayment connected");
@@ -178,11 +178,7 @@ public class WhatIfScreen extends AppScreenBase{
 		findElement(payMoreWidget, driver).click();
 		if(findElement(payMore, driver) != null) {
 			Log.info("What if screen: Pay more click");
-			findElement(payMore, driver).click();
-			delay();	
-			if(isWaitPopupDisplayed()) {
-				waitForVanishWaitPopup();
-			}
+			clickAndWaitSpinerToVanish(payMore);			
 		}
 		else {
 			Log.info("What if screen: Part repayment connected");
@@ -195,11 +191,7 @@ public class WhatIfScreen extends AppScreenBase{
 		findElement(skipPaymentWidget, driver).click();
 		if(findElement(skipPayment, driver) != null) {
 			Log.info("What if screen: Dismiss payment click");
-			findElement(skipPayment, driver).click();
-			delay();	
-			if(isWaitPopupDisplayed()) {
-				waitForVanishWaitPopup();
-			}
+			clickAndWaitSpinerToVanish(skipPayment);			
 		}
 		else {
 			Log.info("What if screen: Dismiss payment payment connected or unavailable");
@@ -212,11 +204,7 @@ public class WhatIfScreen extends AppScreenBase{
 		findElement(changePayDateWidget, driver).click();
 		if(findElement(changePayDate, driver) != null) {
 			Log.info("What if screen: changePayDate click");
-			findElement(changePayDate, driver).click();
-			delay();	
-			if(isWaitPopupDisplayed()) {
-				waitForVanishWaitPopup();
-			}
+			clickAndWaitSpinerToVanish(changePayDate);			
 		}
 		else {
 			Log.info("What if screen: Change payment date connected");
@@ -229,11 +217,7 @@ public class WhatIfScreen extends AppScreenBase{
 		findElement(reducePaymentWidget, driver).click();
 		if(findElement(reducePayment, driver) != null) {
 			Log.info("What if screen: Reduce payment click");
-			findElement(reducePayment, driver).click();
-			delay();	
-			if(isWaitPopupDisplayed()) {
-				waitForVanishWaitPopup();
-			}
+			clickAndWaitSpinerToVanish(reducePayment);			
 		}
 		else {
 			Log.info("What if screen: Reduce payment connected or unavailable");
@@ -243,34 +227,26 @@ public class WhatIfScreen extends AppScreenBase{
 
 	public void payMoreWidgetClick() {
 		Log.info("What if screen: Pay more widget click");
-		findElement(payMoreWidget, driver).click();	
+		click(payMoreWidget);	
 	}
 	
 	public void payAllWidgetClick() {
 		Log.info("What if screen: Pay all widget click");
-		findElement(payAllWidget, driver).click();		
+		click(payAllWidget);		
 	}
 	
 	public void skipPaymentWidgetClick() {
 		Log.info("What if screen: Skip payment widget click");
-		findElement(skipPaymentWidget, driver).click();		
+		click(skipPaymentWidget);		
 	}
 	
 	public void reducePaymentWidgetClick() {
 		Log.info("What if screen: Reduce payment widget click");
-		findElement(reducePaymentWidget, driver).click();		
+		click(reducePaymentWidget);		
 	}
 	
 	public void changePaymentDateWidgetClick() {
 		Log.info("What if screen: Change payment date widget click");
-		findElement(changePayDateWidget, driver).click();		
+		click(changePayDateWidget);		
 	}
-
-	public void verifyDepositWhatIfScreen() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
 }

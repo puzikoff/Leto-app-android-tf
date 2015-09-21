@@ -28,77 +28,57 @@ public class WhatIfLoanScreen extends AppScreenBase{
 	
 	public void payMoreWidgetClick(){
 		Log.info("What if screen: Pay more widget click");
-		findElement(payMoreWidget, driver).click();
+		click(payMoreWidget);
 	}
 	
 	public void payLessWidgetClick(){
 		Log.info("What if screen: Pay less widget click");
-		findElement(payLessWidget, driver).click();
+		click(payLessWidget);
 	}
 	
 	public void payAllWidgetClick(){
 		Log.info("What if screen: Pay all widget click");
-		findElement(payAllWidget, driver).click();
+		click(payAllWidget);
 	}
 	
 	public void insuranceCaseWidgetClick(){
 		Log.info("What if screen: Insurance case widget click");
-		findElement(insuranceCaseWidget, driver).click();
+		click(insuranceCaseWidget);
 	}
 	
 	public void dismissPaymentWidgetClick(){
 		Log.info("What if screen: Dismiss payment widget click");
-		findElement(dismissPaymentWidget, driver).click();
+		click(dismissPaymentWidget);
 	}
 	
 	public void decreasePaymentWidgetClick(){
 		Log.info("What if screen: Decrease payment widget click");
-		findElement(decreasePaymentWidget, driver).click();
+		click(decreasePaymentWidget);
 	}
 	
 	public void changePayDateWidgetClick(){
 		Log.info("What if screen: Change pay date widget click");
-		findElement(changePayDateWidget, driver).click();
+		click(changePayDateWidget);
 	}
 	
-	public void payAllClick() {
-		waitFor(payAll);
+	public void payAllClick() {		
 		Log.info("What if screen: Pay all click");
-		findElement(payAll, driver).click();
-		delay();		
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(payAll);	
 	}
 	
-	public void payMoreClick() {
-		waitFor(payMore);
+	public void payMoreClick() {		
 		Log.info("What if screen: Pay more click");
-		findElement(payMore, driver).click();
-		delay();	
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }
+		clickAndWaitSpinerToVanish(payMore);
 	}
 		
-	public void turnOffInsuranceClick() {
-		waitFor(turnOffInsurance);
+	public void turnOffInsuranceClick() {		
 		Log.info("What if screen: turn Off Insurance click");
-		findElement(turnOffInsurance, driver).click();
-		delay();	
-		if(isWaitPopupDisplayed()) {
-			waitForVanishWaitPopup();
-	    }	
+		clickAndWaitSpinerToVanish(turnOffInsurance);	
 	}
 	
-	public void changePayDateClick() {
-		waitFor(changePayDate);
+	public void changePayDateClick() {		
 		Log.info("What if screen: changePayDate click");
-		findElement(changePayDate, driver).click();
-		delay();	
-		if(isWaitPopupDisplayed()) {
-			waitForVanishWaitPopup();
-	    }	
+		clickAndWaitSpinerToVanish(changePayDate);	
 	}
 
 	public void verify() {

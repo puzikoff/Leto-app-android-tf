@@ -58,14 +58,10 @@ public class TimelineScreen extends AppScreenBase{
 			takeScreenshot();
 			return true;
 		}
-		else return false;		
-
+		else return false;	
 	}
 
 	public void waitForVanishUpdateSpiner() {
 		waitForVanish(updateSpiner);		
 	}
-
-	
-
 }

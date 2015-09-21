@@ -65,26 +65,21 @@ public class CardScreen extends AppScreenBase{
 	
 	public void infoTabClick() {
 		Log.info("Card Screen: Information tab click");
-		findElement(infoTabBtn, driver).click();
-		delay();
+		click(infoTabBtn);
 	}
 
 	public void managementTabClick() {
 		Log.info("Card Screen: Managementd tab click");
-		findElement(managementTabBtn, driver).click();
-		delay();		
+		click(managementTabBtn);		
 	}
 	
 	public void cardTabClick() {
 		Log.info("Card Screen: Card tab click");
-		findElement(cardTabBtn, driver).click();
-		delay();
+		click(cardTabBtn);
 	}
 
 	public void waitForVanishUpdateIndicator() {
 		Log.info("Card screen: Wait for vanish update spiner");		
 		waitForVanish(updateIndicator);				
 	}
-	
-
 }

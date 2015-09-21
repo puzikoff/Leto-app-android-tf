@@ -25,8 +25,7 @@ public class EditDisplayNameBlock extends ScreenBase{
 
 	public void editDisplayNameBtnClick() {		
 		Log.info("Edit display name block: Click edit button");
-		findElement(editNameBtn, driver).click();
-		delay();
+		click(editNameBtn);
 	}
 	
 	public String getDisplayName() {
@@ -62,18 +61,12 @@ public class EditDisplayNameBlock extends ScreenBase{
 	
 	public void editDisplayNamePopupNextBtnClick() {
 		Log.info("Edit display name block: Click next");
-		findElement(editDisplayNamePopupNextBtn, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }		
-
+		clickAndWaitSpinerToVanish(editDisplayNamePopupNextBtn);
 	}
 	
 	public void editDisplayNamePopupCancelBtnClick() {
 		Log.info("Edit display name block: Click cancel");
-		findElement(editDisplayNamePopupCancelBtn, driver).click();
-		delay();
+		click(editDisplayNamePopupCancelBtn);
 	}
 
 }

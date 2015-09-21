@@ -44,14 +44,12 @@ public class DepositScreen extends AppScreenBase{
 
 	public void depositInfoTabClick() {
 		Log.info("Deposit Screen: Managementd tab click");
-		findElement(infoTabBtn, driver).click();
-		delay();		
+		click(infoTabBtn);		
 	}
 	
 	public void depositTabClick() {
 		Log.info("Deposit Screen: Deposit tab click");
-		findElement(depositTabBtn, driver).click();
-		delay();
+		click(depositTabBtn);
 	}
 
 	public void waitForVanishUpdateIndicator() {

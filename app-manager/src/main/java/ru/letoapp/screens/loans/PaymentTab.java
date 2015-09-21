@@ -100,13 +100,4 @@ public class PaymentTab extends AppScreenBase{
 		Log.info("Payment date: " + onlyNumbers(paymentDate));
 		return onlyNumbers(paymentDate);
 	}
-	
-	/*public void findTest() {
-		List<WebElement> elements = driver.findElements(By.xpath("//TextView"));
-		List<WebElement> elements2 = paymentTab.findElements(By.xpath("//TextView"));
-		Log.info("All: " + elements.size());
-		Log.info("Under payment tab: " + elements2.size());		
-	}*/
-
-
 }

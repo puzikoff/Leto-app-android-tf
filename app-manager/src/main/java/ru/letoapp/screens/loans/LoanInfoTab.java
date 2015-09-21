@@ -40,48 +40,29 @@ public class LoanInfoTab extends AppScreenBase{
 		verify.assertAll();
 	}
 	
-	public void contractBtnClick() {
-		waitForClickable(contractBtn);
+	public void contractBtnClick() {		
 		Log.info("Loan info tab: contract butoon click");
-		findElement(contractBtn, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(contractBtn);	
 	}
 	
-	public void creditOperationsBtnClick() {
-		waitForClickable(creditOperationsBtn);
+	public void creditOperationsBtnClick() {		
 		Log.info("Loan info tab: Credit operations button click");
-		findElement(creditOperationsBtn, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(creditOperationsBtn);	
 	}
 	
 	public void insuranceBtnClick() {		
 		Log.info("Loan info tab: Insurance button click");
 		if(isInsuranceBtnClickable()) {
 			Log.info("Loan info tab: Insurance button clickable");
-			findElement(insuranceBtn, driver).click();
-			delay();
-			if(isWaitPopupDisplayed()) {
-				waitForVanishWaitPopup();
-			}
+			clickAndWaitSpinerToVanish(insuranceBtn);
 		}
 		else
 			Log.info("Loan info tab: Insurance button is not clickable");
 	}
 	
-	public void paymentsScheduleBtnClick() {
-		waitForClickable(paymentsScheduleBtn);
+	public void paymentsScheduleBtnClick() {		
 		Log.info("Loan info tab: Payments schedule button click");
-		findElement(paymentsScheduleBtn, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(paymentsScheduleBtn);	
 	}
 	
 	public boolean isInsuranceBtnClickable() {
