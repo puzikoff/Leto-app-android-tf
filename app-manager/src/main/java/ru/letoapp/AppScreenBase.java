@@ -95,38 +95,43 @@ public class AppScreenBase extends ScreenBase {
 	
 	
 	public boolean isErrorPopupDisplayed() {
-		if(findElement(errorPopupTitleLocator, driver) != null) {
-			try {
-					if(findElement(errorPopupTitleLocator, driver) == null) {
-						Log.info("Error popup is not displayed");
-						return false;
+		int f = 0;		
+		do {
+			if(findElement(errorPopupTitleLocator, driver) != null) {
+				try {
+						if(findElement(errorPopupTitleLocator, driver) == null) {
+							Log.info("Error popup is not displayed");
+							return false;
+						}
+						if((findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText))||(findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText2))) 
+						{
+							Log.error("Error popup displayed");			
+							Log.error(findElement(errorPopupMessageLocator, driver).getText());				
+							takeScreenshot("Error Popup");
+							findElement(popupNextBtn, driver).click();
+							return true; 
+						}			
+						else {
+							Log.info("Error popup is not displayed");
+							return false;
+						}
 					}
-					if((findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText))||(findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText2))) 
-					{
-						Log.error("Error popup displayed");			
-						Log.error(findElement(errorPopupMessageLocator, driver).getText());				
-						takeScreenshot("Error Popup");
-						findElement(popupNextBtn, driver).click();
-						return true; 
-					}			
-					else {
-						Log.info("Error popup is not displayed");
-						return false;
-					}
+				catch(NullPointerException e) {
+					Log.info("Error popup is not displayed: ");
+					return false;
 				}
-			catch(NullPointerException e) {
-				Log.info("Error popup is not displayed: ");
-				return false;
+				catch(StaleElementReferenceException e) {
+					Log.info("Stale reference exception: Error popup is not displayed: ");
+					++f;					
+				}
 			}
-			catch(StaleElementReferenceException e) {
-				Log.info("Error popup is not displayed: ");
+			else{
+				Log.info("Error popup is not displayed");
 				return false;
 			}
 		}
-		else{
-			Log.info("Error popup is not displayed");
-			return false;
-		}
+		while(f < 2);
+		return false;
 	}
 	
 
