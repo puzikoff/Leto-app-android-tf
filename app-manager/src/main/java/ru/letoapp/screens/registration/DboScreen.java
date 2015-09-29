@@ -13,6 +13,7 @@ public class DboScreen extends AppScreenBase {
 	By contextMenuBtn = By.xpath("//ActionMenuItemView[@id='menu_item_more']");
 	By sendEmailBtn = By.xpath("//TextView[contains(@value, 'Отправить на почту')]");
 	String acceptTermsBtnText = "Принять условия договора";
+	By content = By.xpath("//FrameLayout[@id='content']");
 	
 	public DboScreen(WebDriver driver) {
 		super(driver);		
@@ -49,5 +50,15 @@ public class DboScreen extends AppScreenBase {
         	waitForVanishWaitPopup();
         }		
 	}
+	
+	public void scrollDownDBO(){
+		Log.info("Dbo screen: scroll dbo content");
+		flick(content, 0, -100, 0);
+	}
+		
+		
+		
+		
+	
 
 }

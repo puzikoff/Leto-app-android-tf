@@ -12,7 +12,7 @@ public class PropertyReader {
 
     public static void init(String file) throws AssertionError{
         try {
-        	 InputStreamReader isr = new InputStreamReader(new FileInputStream("src/main/resources/" + file), "UTF-8");
+        	 InputStreamReader isr = new InputStreamReader(new FileInputStream(file), "UTF-8");
         	 props.load(isr);
         	} catch (Exception e) {
             try {
