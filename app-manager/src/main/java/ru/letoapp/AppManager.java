@@ -468,12 +468,14 @@ public class AppManager {
 	public void stopServer() {
 		if(getServer() != null) {
 			getServer().stopSelendroid();
+			server = null;
 		}
 	}
 	
 	public void stopDriver() {
 		if(getDriver() != null) {
-			getDriver().quit();			
+			getDriver().quit();		
+			driver = null;
 		}	
 	}
 
