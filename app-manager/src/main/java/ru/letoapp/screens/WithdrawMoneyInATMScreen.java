@@ -24,12 +24,12 @@ public class WithdrawMoneyInATMScreen extends AppScreenBase {
 	String errorLoadingText = "Извините, произошла ошибка, мы уже работаем над ее исправлением.";
 	By errorLoading = By.xpath("//TextView[@value='Извините, произошла ошибка, мы уже работаем над ее исправлением.']");
 
-	public void getQRBtnClick() {
+	public void getQRBtnClick() throws Exception {
 		Log.info("Get QR code button click");
 		click(getQRBtn);		
 	}
 
-	public void verify() {		
+	public void verify() throws Exception {		
 		verify.assertTrue(findElement(hint, driver).getText().contains(hintText), "Hint text");
 		verify.assertTrue(findElement(addressesOnMap, driver).isDisplayed(), "Addresses on map");
 		verify.assertTrue(findElement(getQRBtn, driver).isDisplayed(), "Get QR button");
@@ -44,7 +44,7 @@ public class WithdrawMoneyInATMScreen extends AppScreenBase {
 		waitForVanish(loadingIndicator);		
 	}
 		
-	public boolean isLoadingErrorExist() {		
+	public boolean isLoadingErrorExist() throws Exception {		
 		if(findElement(errorLoading, driver) != null){
 			Log.error("QR code screen: Loading ERROR");
 			//takeScreenshot();

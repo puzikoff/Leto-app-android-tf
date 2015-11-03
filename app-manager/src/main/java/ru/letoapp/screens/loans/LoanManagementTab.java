@@ -27,12 +27,12 @@ public class LoanManagementTab extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verify(){
+	public void verify() throws Exception{
 		verify.assertTrue(findElement(connectingServicesHistoryBtn, driver).isDisplayed(), "Connecting services history");
 		verify.assertAll();
 	}
 	
-	public void serviceDetailsClick(String serviceName){
+	public void serviceDetailsClick(String serviceName) throws Exception{
 		Log.info("Loan management tab: " + serviceName + " detailes click");
 		if(findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView"), driver) != null) {
 			click(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView"));
@@ -50,17 +50,17 @@ public class LoanManagementTab extends AppScreenBase{
 		}
 	}
 	
-	public void unwrapServiceBlock(String serviceName){
+	public void unwrapServiceBlock(String serviceName) throws Exception{
 		Log.info("Loan management tab: Unwrap service " + serviceName + " block");
 		findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView"), driver).click();
 	}
 	
-	public void wrapServiceBlock(String serviceName){
+	public void wrapServiceBlock(String serviceName) throws Exception{
 		Log.info("Loan management tab: Wrap service " + serviceName + " block");
 		findElement(By.xpath("//TextView[@value='" + serviceName + "']/../../ImageView"), driver).click();		
 	}
 	
-	public void connectingServicesHistoryBtnClick() {
+	public void connectingServicesHistoryBtnClick() throws Exception {
 		Log.info("Loan management tab: Connecting services button click");
 		findElement(connectingServicesHistoryBtn, driver).click();
 		delay();

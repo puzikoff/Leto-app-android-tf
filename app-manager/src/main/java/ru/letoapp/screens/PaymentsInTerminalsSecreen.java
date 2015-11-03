@@ -15,7 +15,7 @@ public class PaymentsInTerminalsSecreen extends AppScreenBase{
 	String bankNameText = "ПАО \"Лето Банк\"";
 	By bIKBlock = By.xpath("//TextView[@value='БИК']");
 	By bIKBlockText = By.xpath("//TextView[@value='БИК']/following-sibling::TextView");
-	String bikValue = "044585214";
+	String bikValue = "044525214";
 	By iNNBlock = By.xpath("//TextView[@value='ИНН']");
 	By iNNBlockText = By.xpath("//TextView[@value='ИНН']/following-sibling::TextView");
 	String innValue = "3232005484";
@@ -24,7 +24,7 @@ public class PaymentsInTerminalsSecreen extends AppScreenBase{
 	String kPPValue = "997950001";
 	By correspondentAccountBlock = By.xpath("//TextView[@value='КОРР. СЧЁТ']");
 	By correspondentAccountBlockText = By.xpath("//TextView[@value='КОРР. СЧЁТ']/following-sibling::TextView");
-	String corespondentAccountValue = "3010 1810 8000 0000 0214";	
+	String corespondentAccountValue = "3010 1810 2452 5000 0214";	
 	By clientAccountBlock = By.xpath("//TextView[@value='НОМЕР СЧЁТА КЛИЕНТА']");	
 	By paymentPurposeBlock = By.xpath("//TextView[@value='НАЗНАЧЕНИЕ ПЛАТЕЖА']");	
 
@@ -32,7 +32,7 @@ public class PaymentsInTerminalsSecreen extends AppScreenBase{
 		super(driver);
 	}
 
-	public void verify() {		
+	public void verify() throws Exception {		
 		verify.assertEquals(findElement(hint, driver).getText(), hintText, "Hint text");
 		verify.assertEquals(findElement(bankNameBlockText, driver).getText(), bankNameText, "Bank name");
 		verify.assertEquals(findElement(bIKBlockText, driver).getText(), bikValue, "BIK");

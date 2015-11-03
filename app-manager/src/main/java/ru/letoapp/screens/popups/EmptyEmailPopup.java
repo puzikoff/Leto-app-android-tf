@@ -12,11 +12,11 @@ public class EmptyEmailPopup extends PopupBase{
 		super(driver);
 	}
 	
-	public void verifyPopup() {
+	public void verifyPopup() throws Exception {
 		Log.info("Empty sms code popup: Verify empty login popup");
 		verify.assertEquals(findElement(title, driver).getText(), titleText, "Popup title");
 		//verify.assertEquals(findElement(message, driver).getText(), popupMessageText, "Popup message");
-		verify.assertEquals(findElement(nextBtn, driver).getText(), nextBtnText, "Popup next button");
+		//verify.assertEquals(findElement(nextBtn, driver).getText(), nextBtnText, "Popup next button");
 		verify.assertAll();
 	}
 

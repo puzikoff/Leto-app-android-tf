@@ -28,7 +28,7 @@ public class SendEmailScreen extends AppScreenBase{
 		return emptyEmailPopup;
 	}
 	
-	public boolean isEmptySmsCodePopupDisplayed() {		
+	public boolean isEmptySmsCodePopupDisplayed() throws Exception {		
 		if(findElement(emptyEmailPopupLocator, driver) != null) {
 			Log.info("Send email screen: Empty email popup displayed");
 			return true;
@@ -37,7 +37,7 @@ public class SendEmailScreen extends AppScreenBase{
 		return false;
 	}
 
-	public void sendBtnClick() {		
+	public void sendBtnClick() throws Exception {		
 		waitFor(sendBtn);		
 		Log.info("Send Email Screen: Click send button");
 		findElement(sendBtn, driver).click();
@@ -48,7 +48,7 @@ public class SendEmailScreen extends AppScreenBase{
 	}
 	
 
-	public void enterEmail(String email) {
+	public void enterEmail(String email) throws Exception {
 		Log.info("Send Email Screen: Entering email: " + email);
 		findElement(emailField, driver).clear();
 		findElement(emailField, driver).sendKeys(email);		

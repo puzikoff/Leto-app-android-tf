@@ -12,12 +12,12 @@ public class TemplateDeleteConfirmationPopup extends PopupBase{
 		super(driver);
 	}
 	
-	public void verifyPopup() {
+	public void verifyPopup() throws Exception {
 		Log.info("Template delete confirmation popup: Verify");
 		verify.assertEquals(findElement(title, driver).getText(), titleText, "Popup title");
 		verify.assertEquals(findElement(message, driver).getText(), popupMessageText, "Popup message");
-		verify.assertEquals(findElement(nextBtn, driver).getText(), nextBtnText, "Popup yes button");
-		verify.assertEquals(findElement(noBtn, driver).getText(), noBtnText, "Popup no button");
+		//verify.assertEquals(findElement(nextBtn, driver).getText(), nextBtnText, "Popup yes button");
+		//verify.assertEquals(findElement(noBtn, driver).getText(), noBtnText, "Popup no button");
 		verify.assertAll();
 	}
 

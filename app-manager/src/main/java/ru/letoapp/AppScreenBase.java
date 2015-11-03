@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import ru.letoapp.screens.ActionBar;
 import ru.letoapp.screens.Drawer;
 import ru.letoapp.screens.popups.ErrorPopup;
+import ru.letoapp.utilities.RetryStrategy;
 import ru.letoapp.utilities.ScreenshotMaker;
 
 import com.thoughtworks.selenium.Wait.WaitTimedOutException;
@@ -39,31 +40,31 @@ public class AppScreenBase extends ScreenBase {
 	}		
 	
 /* ---- Action Bar methods -----*/		
-	public String getTitleFromActionBar() {
+	public String getTitleFromActionBar() throws Exception {
 		return actionBar.getActionBarTitle();
 	}
 	
-	public void navUpBtnClick() {		
+	public void navUpBtnClick() throws Exception {		
 		actionBar.navUpBtnClick();
 	}
 	
-	public void menuBtnClick() {
+	public void menuBtnClick() throws Exception {
 		actionBar.menuBtnClick();
 	}
 	
-	public void openDrawer() {
+	public void openDrawer() throws Exception {
 		actionBar.menuBtnClick();
 	}
 	
-	public void closeDrawer() {
+	public void closeDrawer() throws Exception {
 		actionBar.menuBtnClick();
 	}
 	
-	public void contactsBtnClick() {
+	public void contactsBtnClick() throws Exception {
 		actionBar.contactsBtnClick();
 	}	
 
-	public String getActionBarTitle() {
+	public String getActionBarTitle() throws Exception {
 		return actionBar.getActionBarTitle();
 	}
 	
@@ -82,18 +83,75 @@ public class AppScreenBase extends ScreenBase {
 		return errorPopup;
 	}
 	
-	public boolean isElementPresent(By element) {
-		if(findElement(element, driver) != null) {
-			Log.info("Element: " + element.toString() + " exist");
+	public boolean isElementPresent(By element) throws Exception {
+		RetryStrategy retry = new RetryStrategy();
+		 while(retry.shouldRetry()) {
+			 try {
+				 if(driver.findElement(element) != null) {
+					 Log.info("Element: " + element.toString() + " exist");
+					 return true;
+				 }
+				 else {
+					 Log.info("There is no element: " + element.toString() + " on the screen");
+					 return false;
+				 }
+			 }
+			 catch(StaleElementReferenceException e){
+				 Log.warn("Got into StaleElement exception  " + element.toString());
+	             retry.errorOccured(e);
+			 }
+		 }
+		return false;
+	}
+	
+	public boolean isElementDisplayed(By element) throws Exception {
+		if(findElement(element, driver).isDisplayed()) {
+			Log.info("Element: " + element.toString() + " displayed");
 			return true;
 		}
 		else {
-			Log.info("There is no element: " + element.toString() + " on the screen");
+			Log.info("Element: " + element.toString() + " is not displayed");
 			return false;
 		}
 	}
 	
 	
+	public boolean isErrorPopupDisplayed() throws Exception {	
+			RetryStrategy retry = new RetryStrategy();
+			if(findElement(errorPopupTitleLocator, driver) != null) {
+				while(retry.shouldRetry()) {
+					try {
+							if(findElement(errorPopupTitleLocator, driver) == null) {
+								Log.info("Error popup is not displayed");
+								return false;
+							}
+							if((findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText))||(findElement(errorPopupTitleLocator, driver).getText().equals(errorPopuptitleText2))) 
+							{
+								Log.error("Error popup displayed");			
+								Log.error(findElement(errorPopupMessageLocator, driver).getText());				
+								takeScreenshot("Error Popup");
+								findElement(popupNextBtn, driver).click();
+								return true; 
+							}			
+							else {
+								Log.info("Error popup is not displayed");
+								return false;
+							}
+						}
+					catch(NullPointerException e) {
+						Log.info("Error popup is not displayed: ");
+						return false;
+					}
+					catch(StaleElementReferenceException e) {
+						Log.info("Stale reference exception: Error popup is not displayed: ");
+						retry.errorOccured(e);
+					}
+				}
+			}			
+			return false;		
+	}
+	
+	/*
 	public boolean isErrorPopupDisplayed() {
 		int f = 0;		
 		do {
@@ -133,7 +191,7 @@ public class AppScreenBase extends ScreenBase {
 		while(f < 2);
 		return false;
 	}
-	
+	*/
 
 	
 	public void waitForVanish(final By elementToVanish) {		
@@ -158,7 +216,11 @@ public class AppScreenBase extends ScreenBase {
 	                    		} catch (InvalidElementStateException exp) {
 	                    			Log.info(elementToVanish.toString() + " InvalidElementStateException: ");
 	                    			return "InvalidElementStateException";
-	                    		}
+	                    		} catch (Exception e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+									return "Exception e";
+								}
 	                		}	                
 	            });
 	        } catch (WaitTimedOutException e) {
@@ -170,8 +232,8 @@ public class AppScreenBase extends ScreenBase {
 	public boolean isElementClickable(By element) {
 		try
 		{
-		   WebDriverWait wait = new WebDriverWait(driver, 2);
-		   wait.until(ExpectedConditions.elementToBeClickable(findElement(element, driver)));
+		   WebDriverWait wait = new WebDriverWait(driver, 1);
+		   wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(element)));
 		   Log.info("Element: " + element.toString() + " is clicklable");
 		   return true;
 		}

@@ -12,11 +12,11 @@ public class EmptyPasswordPopup extends PopupBase{
 		super(driver);
 	}
 
-	public void verifyPopup() {
+	public void verifyPopup() throws Exception {
 		Log.info("Empty password popup: Verify empty password popup");
 		verify.assertEquals(findElement(title, driver).getText(), titleText);
 		verify.assertEquals(findElement(message, driver).getText(), popupMessageText);
-		verify.assertEquals(findElement(nextBtn, driver).getText(), nextBtnText);
+		//verify.assertEquals(findElement(nextBtn, driver).getText(), nextBtnText);
 		verify.assertAll();
 	}
 	

@@ -27,7 +27,7 @@ public class WalletTab extends AppScreenBase{
 		super(driver);
 	}	
 	
-	public void verifyZeroWallet() {		
+	public void verifyZeroWallet() throws Exception {		
 		verify.assertTrue(findElement(totalAvailable, driver).isDisplayed(), "total available");
 		verify.assertTrue(findElement(totalAvailableCaption, driver).isDisplayed(), "total available caption");
 		verify.assertEquals(findElement(walletHint, driver).getText(), walletHintText, "Wallet hint");
@@ -39,7 +39,7 @@ public class WalletTab extends AppScreenBase{
 		verify.assertAll();
 	}
 	
-	public void verifyNotZeroWallet() {		
+	public void verifyNotZeroWallet() throws Exception {		
 		verify.assertTrue(findElement(totalAvailable, driver).isDisplayed(), "total available");
 		verify.assertTrue(Integer.valueOf(onlyNumbers(findElement(totalAvailable, driver).getText())) > 0, "total available > 0");
 		verify.assertTrue(findElement(totalAvailableCaption, driver).isDisplayed(), "Wallet info body");
@@ -52,39 +52,39 @@ public class WalletTab extends AppScreenBase{
 		verify.assertAll();
 	}
 	
-	public void walletOperationsBtnClick() {
+	public void walletOperationsBtnClick() throws Exception {
 		Log.info("Wallet Screen: Wallet operations button click");
 		click(walletOperationsBtn);
 	}
 	
-	public void paymentBtnClick() {
+	public void paymentBtnClick() throws Exception {
 		Log.info("Wallet Screen: Payment button click");
 		click(paymentBtn);
 	}
 	
-	public void addFundsBtnClick() {
+	public void addFundsBtnClick() throws Exception {
 		Log.info("Wallet Screen: Add funds button click");
 		click(addFundsBtn);
 	}
 	
-	public void connectCardBtnClick() {
+	public void connectCardBtnClick() throws Exception {
 		Log.info("Wallet Screen: Connect card button click");
 		click(connectCardBtn);
 	}
 	
-	public void inLetoBankOfficesClick() {
+	public void inLetoBankOfficesClick() throws Exception {
 		waitForClickable(inLetoBankOffices);
 		Log.info("Wallet tab: In leto bank offices payment click");
 		clickAndWaitSpinerToVanish(inLetoBankOffices);	
 	}
 	
-	public void anotherBankPaymentClick() {
+	public void anotherBankPaymentClick() throws Exception {
 		waitForClickable(anotherBankPayment);
 		Log.info("wallet tab: Another bank payment click");
 		clickAndWaitSpinerToVanish(anotherBankPayment);	
 	}
 	
-	public void paymentSystemsTerminalsClick() {
+	public void paymentSystemsTerminalsClick() throws Exception {
 		waitForClickable(paymentSystemsTerminals);
 		Log.info("Wallet tab: Payments systems terminalst click");
 		clickAndWaitSpinerToVanish(paymentSystemsTerminals);	

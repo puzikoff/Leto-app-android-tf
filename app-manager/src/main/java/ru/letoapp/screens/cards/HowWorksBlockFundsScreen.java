@@ -14,7 +14,7 @@ public class HowWorksBlockFundsScreen extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verify() {
+	public void verify() throws Exception {
 		Log.info("How works block funds screen: verify");
 		verify.assertEquals(getTitleFromActionBar(), title);
 		Log.info("How works block funds text:  " + findElement(howWorksBlockFunds, driver).getText());

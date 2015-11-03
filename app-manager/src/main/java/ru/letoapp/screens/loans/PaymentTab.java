@@ -36,7 +36,7 @@ public class PaymentTab extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verifyOpenLoan() {
+	public void verifyOpenLoan() throws Exception {
 		verify.assertTrue(findElement(paymentsSchedule, driver).isDisplayed(), "Payments schedule");
 		verify.assertTrue(findElement(paymentBlockTitle, driver).isDisplayed(), "Payment block title");
 		verify.assertTrue(findElement(currentPaymentBlock, driver).isDisplayed(), "Current payment block");
@@ -48,7 +48,7 @@ public class PaymentTab extends AppScreenBase{
 		verify.assertAll();
 	}
 	
-	public void verifyPreclosedLoan() {
+	public void verifyPreclosedLoan() throws Exception {
 		verify.assertTrue(findElement(remainingMoneyHint, driver).isDisplayed(), "Remaining money hint");
 		verify.assertTrue(findElement(remainingMoneyHint, driver).getText().contains(remainingMoneyHintText), "Remaining money hint text");
 		verify.assertTrue(findElement(paymentsSchedule, driver).isDisplayed(), "Payments schedule");
@@ -57,43 +57,43 @@ public class PaymentTab extends AppScreenBase{
 		verify.assertAll();
 	}
 		
-	public void paymentScheduleClick() {
+	public void paymentScheduleClick() throws Exception {
 		waitFor(paymentsSchedule);
 		Log.info("Loan payment tab: Payment schedule click");
 		clickAndWaitSpinerToVanish(paymentsSchedule);			
 	}
 	
-	public void whatIfClick() {
+	public void whatIfClick() throws Exception {
 		waitForClickable(whatIf);
 		Log.info("Loan payment tab: What if? click");
 		clickAndWaitSpinerToVanish(whatIf);			
 	}
 	
-	public void inLetoBankOfficesClick() {
+	public void inLetoBankOfficesClick() throws Exception {
 		waitForClickable(inLetoBankOffices);
 		Log.info("Loan payment tab: In leto bank offices payment click");
 		clickAndWaitSpinerToVanish(inLetoBankOffices);			
 	}
 	
-	public void withdrawMoneyInATMClick() {
+	public void withdrawMoneyInATMClick() throws Exception {
 		waitForClickable(withdrawMoneyInATM);
 		Log.info("Loan payment tab: Withdraw money in ATM");
 		clickAndWaitSpinerToVanish(withdrawMoneyInATM);			
 	}
 	
-	public void anotherBankPaymentClick() {
+	public void anotherBankPaymentClick() throws Exception {
 		waitForClickable(anotherBankPayment);
 		Log.info("Loan payment tab: Another bank payment click");
 		clickAndWaitSpinerToVanish(anotherBankPayment);			
 	}
 	
-	public void paymentSystemsTerminalsClick() {
+	public void paymentSystemsTerminalsClick() throws Exception {
 		waitForClickable(paymentSystemsTerminals);
 		Log.info("Loan payment tab: Payments systems terminalst click");
 		clickAndWaitSpinerToVanish(paymentSystemsTerminals);			
 	}
 	
-	public String getPaymentDate() {
+	public String getPaymentDate() throws Exception {
 		Log.info("Loan screen, Payment tab: Get payment date from payment tab");		
 		String paymentDate = findElement(nextPaymentDate, driver).getText();
 		Log.info("Payment date block text: " + paymentDate);

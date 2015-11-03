@@ -14,13 +14,13 @@ public class AndroidPopup extends PopupBase{
 		super(driver);		
 	}
 	
-	public void sendClick() {
+	public void sendClick() throws Exception {
 		Log.info("Android popup: " + findElement(message, driver).getText());
 		Log.info("Android popup: Click send");
 		findElement(send, driver).click();
 	}
 	
-	public void dismissClick() {
+	public void dismissClick() throws Exception {
 		Log.info("Android popup: " + findElement(message, driver).getText());
 		Log.info("Android popup: Click send");
 		findElement(dismiss, driver).click();

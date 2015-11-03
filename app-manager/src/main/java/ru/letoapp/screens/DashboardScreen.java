@@ -64,7 +64,7 @@ public class DashboardScreen extends AppScreenBase {
 		}
 	}
 	
-	public boolean isLoadingErrorExist() {		
+	public boolean isLoadingErrorExist() throws Exception {		
 		if(findElement(loadingError, driver).isDisplayed()){
 			Log.error("Dashboard screen: Loading ERROR");
 			takeScreenshot();
@@ -86,28 +86,28 @@ public class DashboardScreen extends AppScreenBase {
 		}
 	}
 	
-	public void openCard(int n) {		
+	public void openCard(int n) throws Exception {		
 		Log.info("Dashboard screen: Open card number: " + n + "on dashboard");
 		waitFor("//CardSectionView_//CardInfoView_[1]");
 		findElement(By.xpath("//CardSectionView_//CardInfoView_[" + n + "]"), driver).click();
 		delay();
 	}
 	
-	public void openLoan(int n) {		
+	public void openLoan(int n) throws Exception {		
 		Log.info("Dashboard screen: Open loan number: " + n + "on dashboard");
 		waitFor("//LoanSectionView_//LoanInfoView_[1]");
 		findElement(By.xpath("//LoanSectionView_//LoanInfoView_[" + n + "]"), driver).click();
 		delay();
 	}
 	
-	public void openDeposit(int n) {		
+	public void openDeposit(int n) throws Exception {		
 		Log.info("Dashboard screen: Open deposit number: " + n + "on dashboard");
 		waitFor("//DepositSectionView_//DepositInfoView_[1]");
 		findElement(By.xpath("//DepositSectionView_//DepositInfoView_[" + n + "]"), driver).click();
 		delay();
 	}
 	
-	public String getCardSum(String cardName) {
+	public String getCardSum(String cardName) throws Exception {
 		String sum = null;
 		Log.info("Dashboard screen: Get" + cardName + "card sum");
 		waitFor("//TextView[@id='label_card_caption']");				
@@ -124,38 +124,38 @@ public class DashboardScreen extends AppScreenBase {
 		return "no card"; 		 
 	}
 	
-	public String getCardSum(int n) {
+	public String getCardSum(int n) throws Exception {
 		waitFor("//ScrollView/LinearLayout//FrameLayout[2]//CardInfoView_[" + n + "]//TextView[2]");		
 		return findElement(By.xpath("//ScrollView/LinearLayout//FrameLayout[2]//CardInfoView_[" + n + "]//TextView[2]"), driver).getText();
 	}
 	
 	
-	public void cardsListBtnClick() {		
+	public void cardsListBtnClick() throws Exception {		
 		Log.info("Dashboard screen: Open cards list");
 		click(cardsListBtn);
 	}	
 	
-	public void loansListBtnClick() {		
+	public void loansListBtnClick() throws Exception {		
 		Log.info("Dashboard screen: Open loans list");
 		click(loansListBtn);
 	}	
 	
-	public void depositsListBtnClick() {	
+	public void depositsListBtnClick() throws Exception {	
 		Log.info("Dashboard screen: Open depositss list");
 		click(depositsListBtn);
 	}
 	
-	public void timelineBtnClick(){		
+	public void timelineBtnClick() throws Exception{		
 		Log.info("Dashboard screen: Open timeline");
 		click(timelineBtn);
 	}	
 	
-	public void walletBtnClick() {		
+	public void walletBtnClick() throws Exception {		
 		Log.info("Dashboard screen: Open wallet");
 		click(walletBtn);
 	}
 	
-	public void openWallet() {
+	public void openWallet() throws Exception {
 		Log.info("Dashboard screen: Open wallet");
 		click(walletBtn);
 	}
@@ -166,7 +166,7 @@ public class DashboardScreen extends AppScreenBase {
 		waitForVanish(updateBigSpiner);		
 	}
 	
-	public void paymentsBtnClik() {
+	public void paymentsBtnClik() throws Exception {
 		Log.info("Dashboard screen: Payments button click");
 		click(paymentsBtn);
 	}

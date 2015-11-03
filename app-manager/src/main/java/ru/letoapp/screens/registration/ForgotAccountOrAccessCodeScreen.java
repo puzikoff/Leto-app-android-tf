@@ -17,21 +17,21 @@ public class ForgotAccountOrAccessCodeScreen extends AppScreenBase{
 		super(driver);
 	}
 
-	public void enterAccountNumber(String accountNumber) {
+	public void enterAccountNumber(String accountNumber) throws Exception {
 		waitFor(accountNumberField);
 		Log.info("Forgot account Or Access Code Screen: Entering account number");
 		findElement(accountNumberField, driver).clear();
 		findElement(accountNumberField, driver).sendKeys(accountNumber);		
 	}
 
-	public void enterAccessCode(String accessCode) {
+	public void enterAccessCode(String accessCode) throws Exception {
 		waitFor(accessCodeField);
 		Log.info("Forgot Account Or Access Code Screen: Entering acces code");
 		findElement(accessCodeField, driver).clear();
 		findElement(accessCodeField, driver).sendKeys(accessCode);
 	}
 
-	public void NextBtnClick() {
+	public void NextBtnClick() throws Exception {
 		waitFor(nextBtn);
 		Log.info("Forgot Account Or Access Code Screen: Click next button");
 		findElement(nextBtn, driver).click();	

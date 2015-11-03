@@ -21,7 +21,7 @@ public class AboutBankAndAppScreen extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verify() {
+	public void verify() throws Exception {
 		verify.assertEquals(findElement(bankName, driver).getText(), bankNameText, "Bank name");
 		verify.assertEquals(findElement(bankLicense, driver).getText(), bankLicenseText, "Bank license");
 		verify.assertEquals(findElement(vtbInfo, driver).getText(), vtbInfoText, "VTB information");
@@ -29,7 +29,7 @@ public class AboutBankAndAppScreen extends AppScreenBase{
 		verify.assertAll();
 	}
 	
-	public void writeToUsBtnClick() {
+	public void writeToUsBtnClick() throws Exception {
 		Log.info("About bank and application screen: Write to us button click");
 		click(writeToUsBtn);
 	}

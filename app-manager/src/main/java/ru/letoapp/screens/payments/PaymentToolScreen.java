@@ -19,7 +19,7 @@ public class PaymentToolScreen extends AppScreenBase{
 	String subtitleText = "ОПЛАТИТЬ С";
 	
 	
-	public void verify () {
+	public void verify () throws Exception {
 		verify.assertEquals(findElement(subtitle, driver).getText(), subtitleText, "Payment tool screen: subtitle");
 		//verify.assertFalse(isPaymentToolDetailsEmpty(PropertyReader.getProperty("cardName")), "Payment tool screen: Card deteails is empty");
 		verify.assertTrue(findElement(comissionBlock, driver) != null, "Payment tool screen: comission block");
@@ -28,7 +28,7 @@ public class PaymentToolScreen extends AppScreenBase{
 		verify.assertAll();
 	}
 	
-	public boolean isPaymentToolDetailsEmpty (String paymentToolName) {
+	public boolean isPaymentToolDetailsEmpty (String paymentToolName) throws Exception {
 		if(findElement(By.xpath("//TextView[@value='" + paymentToolName + "']/../following-sibling::TextView"), driver).getText() != "") {
 			return false;
 		}
@@ -43,27 +43,27 @@ public class PaymentToolScreen extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void choosePaymentTool(String paymentTool) {
+	public void choosePaymentTool(String paymentTool) throws Exception {
 		Log.info("Payment tool screen: Choose payment tool - " + paymentTool);
 		clickAndWaitSpinerToVanish(By.xpath("//TextView[@value='" + paymentTool + "']/following-sibling::TextView/following-sibling::RadioButton"));				
 	}
 
-	public void nextBtnClick(){
+	public void nextBtnClick() throws Exception{
 		Log.info("Amount screen: next button click");
 		clickAndWaitSpinerToVanish(nextBtn);
 	}
 	
-	public String getComission() {
+	public String getComission() throws Exception {
 		Log.info("Payment tool screen: comission: " + findElement(comission, driver).getText());
 		return onlyNumbers(findElement(comission, driver).getText());
 	}
 	
-	public String getAmount() {
+	public String getAmount() throws Exception {
 		Log.info("Payment tool screen: amount: " + findElement(amount, driver).getText());
 		return onlyNumbers(findElement(amount, driver).getText());
 	}
 	
-	public String getPhoneNumber() {
+	public String getPhoneNumber() throws Exception {
 		Log.info("Payment tool screen: phoneNumber: " + findElement(phoneNumber, driver).getText());
 		return onlyNumbers(findElement(phoneNumber, driver).getText());
 	}

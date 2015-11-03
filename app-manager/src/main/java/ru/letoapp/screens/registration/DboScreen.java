@@ -19,13 +19,13 @@ public class DboScreen extends AppScreenBase {
 		super(driver);		
 	}
 	
-	public void verifyScreen() {
+	public void verifyScreen() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), actionBarTitle, "Action bar title");
 		verify.assertEquals(findElement(acceptTermsBtn, driver).getText(), acceptTermsBtnText, "Accept terms button text");
 		verify.assertAll();
 	}
 
-	public void acceptLicenseTerms() {		
+	public void acceptLicenseTerms() throws Exception {		
 		waitFor(acceptTermsBtn);
 		Log.info("Dbo Screen: Click 'Accept terms' button");
 		findElement(acceptTermsBtn, driver).click();
@@ -35,13 +35,13 @@ public class DboScreen extends AppScreenBase {
         }		
 	}	
 	
-	public void contextMenuBtnClick() {		
+	public void contextMenuBtnClick() throws Exception {		
 		waitFor(contextMenuBtn);
 		Log.info("Dbo Screen: Click menu button");
 		findElement(contextMenuBtn, driver).click();
 	}
 	
-	public void sendEmailBtnClick() {		
+	public void sendEmailBtnClick() throws Exception {		
 		waitFor(sendEmailBtn);
 		Log.info("Dbo Screen: Click send email button");
 		findElement(sendEmailBtn, driver).click();

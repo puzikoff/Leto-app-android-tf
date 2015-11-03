@@ -11,20 +11,20 @@ public class ChangePaymentDateScreen extends AppScreenBase{
 	String title = "Меняю дату платежа";
 	By serviceHint = By.xpath("//TextView[@id='label_content']");
 	String serviceHintText = "Можно выбрать любое число с 4-го по 28-е. Максимальная величина переноса даты - 15 дней от текущего платежа";
-	By commisionBlock = By.xpath("//TextView[@value='КОМИССИЯ ЗА ПОДКЛЮЧЕНИЕ']");
-	By connectionPossibilityBlock = By.xpath("//TextView[@value='ВОЗМОЖНОСТЬ ПОДКЛЮЧЕНИЯ']");
-	By calendarBlock = By.xpath("//TextView[@value='ВЫБЕРИТЕ НОВУЮ ДАТУ']");
+	By commisionBlock = By.xpath("//TextView[@value='Комиссия за подключение']");
+	By connectionPossibilityBlock = By.xpath("//TextView[@value='Возможность подключения']");
+	By calendarBlock = By.xpath("//TextView[@value='Выберите новую дату']");
 	By serviceChangesTitle = By.xpath("//TextView[@id='label_title'][@value='ЧТО БУДЕТ, ЕСЛИ ИЗМЕНИТЬ ДАТУ ПЛАТЕЖА?']");
-	By nextPaymentBlock = By.xpath("//TextView[@value='СЛЕДУЮЩИЙ ПЛАТЁЖ']");
-	By closingDateBlock = By.xpath("//TextView[@value='ПЛАНОВЫЙ СРОК ПОГАШЕНИЯ']");
+	By nextPaymentBlock = By.xpath("//TextView[@value='Следующий платёж']");
+	By closingDateBlock = By.xpath("//TextView[@value='Плановый срок погашения']");
 	By connectBtn = By.xpath("//Button[@id='button']");
-	By differenceBlock = By.xpath("//TextView[contains(@value, 'ВЫ УПЛАТИТЕ')] ");
+	By differenceBlock = By.xpath("//TextView[contains(@value, 'Вы уплатите')] ");
 	
 	public ChangePaymentDateScreen(WebDriver driver) {
 		super(driver);
 	}
 	
-	public void connectBtnClick() {
+	public void connectBtnClick() throws Exception {
 		Log.info("Change Payment Date screen: connect button click");
 		findElement(connectBtn, driver).click();
 		delay();
@@ -33,7 +33,7 @@ public class ChangePaymentDateScreen extends AppScreenBase{
         }		
 	}
 	
-	public void verifyBeforeCalculationCard(){
+	public void verifyBeforeCalculationCard() throws Exception{
 		Log.info("Card screen, Change Payment Date screen: verify before calculation");
 		verify.assertEquals(getTitleFromActionBar(), title, "Title");
 		verify.assertEquals(findElement(serviceHint, driver).getText(),  serviceHintText, "Service hint text");
@@ -42,7 +42,7 @@ public class ChangePaymentDateScreen extends AppScreenBase{
 		verify.assertAll();		
 	}
 	
-	public void verifyAfterCalculationLoan(){
+	public void verifyAfterCalculationLoan() throws Exception{
 		Log.info("Loan screen, Change Payment Date screen: verify after calculation");
 		verify.assertEquals(getTitleFromActionBar(), title, "Title");
 		verify.assertEquals(findElement(serviceHint, driver).getText(),  serviceHintText, "Service hint text");
@@ -56,7 +56,7 @@ public class ChangePaymentDateScreen extends AppScreenBase{
 		verify.assertAll();
 	}
 	
-	public void verifyBeforeCalculationLoan(){
+	public void verifyBeforeCalculationLoan() throws Exception{
 		Log.info("Loan screen, Change Payment Date screen: verify before calculation");
 		verify.assertEquals(getTitleFromActionBar(), title, "Title");
 		verify.assertEquals(findElement(serviceHint, driver).getText(),  serviceHintText, "Service hint text");
@@ -65,7 +65,7 @@ public class ChangePaymentDateScreen extends AppScreenBase{
 		verify.assertAll();		
 	}
 	
-	public void verifyAfterCalculationCard(){
+	public void verifyAfterCalculationCard() throws Exception{
 		Log.info("Card screen, Change Payment Date screen: verify after calculation");
 		verify.assertEquals(getTitleFromActionBar(), title, "Title");
 		verify.assertEquals(findElement(serviceHint, driver).getText(),  serviceHintText, "Service hint text");
@@ -77,14 +77,10 @@ public class ChangePaymentDateScreen extends AppScreenBase{
 		verify.assertAll();
 	}
 	
-	public void chooseNewDate(String date) {
+	public void chooseNewDate(String date) throws Exception {
 		Log.info("Change payment date screen: Choose date: " + date);
-		Assert.assertTrue(isElementClickable(By.xpath("//TextView[@id='label_day_of_month'][@value='" + date + "']")), "Change payment date screen: claculated new payment date is clickable");
-		findElement(By.xpath("//TextView[@id='label_day_of_month'][@value='" + date + "']"), driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }				
+		Assert.assertTrue(isElementClickable(By.xpath("//TextView[@id='label_day_of_month'][@value='" + date + "']")), "Change payment date screen: claculated new payment date is clickable");		
+		clickAndWaitSpinerToVanish(By.xpath("//TextView[@id='label_day_of_month'][@value='" + date + "']"));
 	}
 	
 	public String calculateNewPaymentDate(int paymentDate) {

@@ -18,7 +18,7 @@ public class DepositsListScreen extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verify() {
+	public void verify() throws Exception {
 		verify.assertEquals(getActionBarTitle(), title, "Deposits list screen: title");
 	}
 

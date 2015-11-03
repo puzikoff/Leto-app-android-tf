@@ -12,17 +12,17 @@ public class TemplateContextMenu extends PopupBase{
 		super(driver);
 	}
 	
-	public void payBtnClick() {
+	public void payBtnClick() throws Exception {
 		Log.info("Template context menu: pay btn click");
 		clickAndWaitSpinerToVanish(payBtn);		
 	}
 	
-	public void renameBtnClick() {
+	public void renameBtnClick() throws Exception {
 		Log.info("Template context menu: rename btn click");
 		click(renameBtn);		
 	}
 	
-	public void deleteBtnClick() {
+	public void deleteBtnClick() throws Exception {
 		Log.info("Template context menu: delete btn click");
 		click(deleteBtn);		
 	}

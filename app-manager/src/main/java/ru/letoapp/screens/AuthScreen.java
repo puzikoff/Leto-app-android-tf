@@ -135,7 +135,7 @@ public class AuthScreen extends AppScreenBase {
 		}
 	}		
 	
-	public void verifyAuthScreen() {		
+	public void verifyAuthScreen() throws Exception {		
 		verify.assertEquals(findElement(authTitle, driver).getText(), authTitleText, "Auth title text");	
 		verify.assertEquals(findElement(authSubTitle, driver).getText(), authSubTitleText, "Auth subtitle text");
 		verify.assertEquals(findElement(protCodeCheckbox, driver).getText(), protCodeCheckboxText, "Auth protect code text");		
@@ -145,44 +145,44 @@ public class AuthScreen extends AppScreenBase {
 		verify.assertAll();
 	}
 	
-	public void setProtCodeCheckbox () {		
+	public void setProtCodeCheckbox () throws Exception {		
 		Log.info("Auth screen: Set protect code checkbox");
 		click(protCodeCheckbox);
 	}
 	
-	public boolean isProtCodeCheckboxSelected () {
+	public boolean isProtCodeCheckboxSelected () throws Exception {
 		Log.info("Auth screen: Is protect code selected: " + findElement(protCodeCheckbox, driver).isSelected());
 		return findElement(protCodeCheckbox, driver).isSelected();
 	}
 	
-	public void loginBtnClick () {		
+	public void loginBtnClick () throws Exception {		
 		Log.info("Auth screen: Click login button");
 		clickAndWaitSpinerToVanish(loginBtn);
 	}
 	
-	public void remindLogPasBtnClick () {
+	public void remindLogPasBtnClick () throws Exception {
 		Log.info("Auth screen: Click remind login and password link");
 		clickAndWaitSpinerToVanish(remindLogPasLink);
 	}
 	
-	public void registerBtnClick () {		
+	public void registerBtnClick () throws Exception {		
 		Log.info("Auth screen: Click 'Registration' button'");
 		clickAndWaitSpinerToVanish(registerBtn);
 	}	
 	
-	public void enterUsername (String username) {
+	public void enterUsername (String username) throws Exception {
 		waitFor(usernameTextField);
 		Log.info("Auth screen: Enter Username: " + username);
 		findElement(usernameTextField, driver).clear();
 		findElement(usernameTextField, driver).sendKeys(username);
 	}
 	
-	public String getUsername () {
+	public String getUsername () throws Exception {
 		Log.info("Auth screen: get username");
 		return findElement(usernameTextField, driver).getText();		
 	}
 	
-	public void enterPassword (String password) {
+	public void enterPassword (String password) throws Exception {
 		waitFor(passwordTextField);
 		Log.info("Auth screen: Enter password: " + password);
 		findElement(passwordTextField, driver).clear();

@@ -28,7 +28,7 @@ public class PaymentsAndTransfersScreen extends AppScreenBase{
 		templatesTab.setDriver(driver);
 	}
 	
-	public void verify() {
+	public void verify() throws Exception {
 		Log.info("Verify payments and transfers screen");
 		verify.assertEquals(getTitleFromActionBar(), title, "Verify payments and transfers screen: Title");
 		verify.assertAll();
@@ -46,25 +46,25 @@ public class PaymentsAndTransfersScreen extends AppScreenBase{
 		return transfersTab;
 	}
 	
-	public void searchBy(String searchString) {
+	public void searchBy(String searchString) throws Exception {
 		Log.info("Menu: Search by - " + searchString);
 		findElement(serachField, driver).clear();
 		findElement(serachField, driver).sendKeys(searchString);
 	}
 	
-	public void templatesTabBtnClick() {
+	public void templatesTabBtnClick() throws Exception {
 		Log.info("Payments and transfers screen: Templates tab click");
 		findElement(templatesTabBtn, driver).click();
 		delay();
 	}
 	
-	public void paymentsTabBtnClick() {
+	public void paymentsTabBtnClick() throws Exception {
 		Log.info("Payments and transfers screen: Payments tab click");
 		findElement(paymentsTabBtn, driver).click();
 		delay();
 	}
 	
-	public void transfersTabBtnClick() {
+	public void transfersTabBtnClick() throws Exception {
 		Log.info("Payments and transfers screen: Transfers tab click");
 		findElement(transfersTabBtn, driver).click();
 		delay();

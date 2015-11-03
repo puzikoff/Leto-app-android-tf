@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class BaseHTMLReporter extends HTMLReporter implements ITestListener {
-    public final String DRIVER_ATTRIBUTE = "driver";
+    public static final String DRIVER_ATTRIBUTE = "driver";
     private final String UTILS_KEY = "utils";
 
     private static final ReportUtils REPORT_UTILS = new ReportUtils();
@@ -60,22 +60,14 @@ public class BaseHTMLReporter extends HTMLReporter implements ITestListener {
 
     @Override
     public void onTestFailure(final ITestResult result) {
-        final WebDriver driver = (WebDriver) result.getTestContext().getAttribute(DRIVER_ATTRIBUTE);
-
-        if (driver != null) {
-            createScreenshot(result, driver);
-            driver.quit();
-        }
+    	final WebDriver driver = (WebDriver) result.getTestContext().getAttribute(DRIVER_ATTRIBUTE);
+    	if (driver != null) {
+    		createScreenshot(result, driver);            
+    	}    	
     }
 
     @Override
     public void onTestSuccess(final ITestResult result) {
-        final WebDriver driver = (WebDriver) result.getTestContext().getAttribute(DRIVER_ATTRIBUTE);
-
-        if (driver != null) {
-            createScreenshot(result, driver);
-            driver.quit();
-        }
     }
 
     @Override

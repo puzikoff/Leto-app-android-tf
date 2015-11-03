@@ -16,19 +16,19 @@ public class AboutBankScreen extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verify() {
+	public void verify() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), title);
 		verify.assertTrue(findElement(aboutBankAndAppBtn, driver).isDisplayed(), "About bank and application button is displayed");
 		verify.assertTrue(findElement(bankRequisitesBtn, driver).isDisplayed(), "Bank requisites button is displayed");
 		verify.assertAll();
 	}
 
-	public void aboutBankAndAppBtnClick() {		
+	public void aboutBankAndAppBtnClick() throws Exception {		
 		Log.info("About bank screen: About bank and application button click");
 		click(aboutBankAndAppBtn);		
 	}
 
-	public void bankRequisitesBtnClick() {		
+	public void bankRequisitesBtnClick() throws Exception {		
 		Log.info("About bank screen: Bank requisites button click");
 		click(bankRequisitesBtn);
 	}

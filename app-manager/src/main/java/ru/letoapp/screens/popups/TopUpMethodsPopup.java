@@ -10,7 +10,7 @@ public class TopUpMethodsPopup extends PopupBase{
 		super(driver);
 	}
 	
-	public void verifyTopUpMethodsPopup() {		
+	public void verifyTopUpMethodsPopup() throws Exception {		
 		waitFor(nextBtn);
 		Log.info("Topo up methods popup: Verify greeting window");		
 		verify.assertEquals(findElement(title, driver).getText(), titleText, "Greeting title");		

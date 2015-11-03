@@ -12,7 +12,7 @@ public class LoanContractScreen extends AppScreenBase{
 		super(driver);
 	}
 
-	public void verify() {
+	public void verify() throws Exception {
 		verify.assertTrue(getTitleFromActionBar().contains(titleText ), "Loan contract screen: title");
 		verify.assertAll();		
 	}

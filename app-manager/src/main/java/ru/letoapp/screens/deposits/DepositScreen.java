@@ -42,12 +42,12 @@ public class DepositScreen extends AppScreenBase{
 		return editDisplayName;
 	}
 
-	public void depositInfoTabClick() {
+	public void depositInfoTabClick() throws Exception {
 		Log.info("Deposit Screen: Managementd tab click");
 		click(infoTabBtn);		
 	}
 	
-	public void depositTabClick() {
+	public void depositTabClick() throws Exception {
 		Log.info("Deposit Screen: Deposit tab click");
 		click(depositTabBtn);
 	}
@@ -57,7 +57,7 @@ public class DepositScreen extends AppScreenBase{
 		waitForVanish(updateIndicator);				
 	}
 
-	public void verify() {
+	public void verify() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), title , "Deposit screen: title");		
 		verify.assertAll();				
 	}

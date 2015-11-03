@@ -20,21 +20,21 @@ public class AccountCredentialsScreen extends AppScreenBase{
 	
 	
 	
-	public void enterAccountNumber(String accountNumber) {
+	public void enterAccountNumber(String accountNumber) throws Exception {
 		waitFor(accountNumberField);
 		Log.info("Account Credentials Screen: Entering account number");
 		findElement(accountNumberField, driver).clear();
 		findElement(accountNumberField, driver).sendKeys(accountNumber);		
 	}
 
-	public void enterAccessCode(String accessCode) {
+	public void enterAccessCode(String accessCode) throws Exception {
 		waitFor(accessCodeField);
 		Log.info("Account Credentials Screen: Entering access code");
 		findElement(accessCodeField, driver).clear();
 		findElement(accessCodeField, driver).sendKeys(accessCode);
 	}
 
-	public void NextBtnClick() {
+	public void NextBtnClick() throws Exception {
 		waitFor(nextBtn);
 		Log.info("Account Credentials Screen: Click next button");
 		findElement(nextBtn, driver).click();	
@@ -44,7 +44,7 @@ public class AccountCredentialsScreen extends AppScreenBase{
         }	
 	}
 
-	public void forgotAccountBtnClick() {
+	public void forgotAccountBtnClick() throws Exception {
 		waitFor(forgetAccessLink);
 		Log.info("Account Credentials Screen: Click forget acces code button");
 		findElement(forgetAccessLink, driver).click();	

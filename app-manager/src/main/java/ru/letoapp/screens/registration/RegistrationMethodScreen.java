@@ -18,14 +18,14 @@ public class RegistrationMethodScreen extends AppScreenBase{
 		super(driver);		
 	}
 	
-	public void verifyScreen() {
+	public void verifyScreen() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), actionBarTitle, "Action bar title");
 		verify.assertEquals(findElement(screenTitle, driver).getText(), screenTitleText, "Screen title");
 		verify.assertAll();
 		
 	}
 
-	public void chooseCard() {		
+	public void chooseCard() throws Exception {		
 		waitFor(cardRegistrationBtn);
 		Log.info("RegistrationMethodScreen: Choose card registration");
 		findElement(cardRegistrationBtn, driver).click();
@@ -35,7 +35,7 @@ public class RegistrationMethodScreen extends AppScreenBase{
         }	
 	}
 	
-	public void chooseAccount() {		
+	public void chooseAccount() throws Exception {		
 		waitFor(accountRegistrationBtn);
 		Log.info("RegistrationMethodScreen: Choose account registration");
 		findElement(accountRegistrationBtn, driver).click();

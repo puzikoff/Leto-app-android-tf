@@ -34,7 +34,7 @@ public class SmsCodeScreen extends AppScreenBase{
 		return emptySmsCodePopup;
 	}
 	
-	public boolean isEmptySmsCodePopupDisplayed() {		
+	public boolean isEmptySmsCodePopupDisplayed() throws Exception {		
 		if(findElement(emptySmsCodePopupLocator, driver) != null) {
 			Log.info("Sms code screen: Empty sms code popup displayed");
 			return true;
@@ -44,7 +44,7 @@ public class SmsCodeScreen extends AppScreenBase{
 	}
 
 	
-	public void verifyScreen() {
+	public void verifyScreen() throws Exception {
 		Log.info("SMS code screen: verify screen");
 		verify.assertTrue(findElement(smsCodeComment, driver).getText().contains(smsCodeCommentText));
 		verify.assertEquals(findElement(smsLabelEnterCode, driver).getText(), smsLabelEnterCodeText, "SMS label enter code");
@@ -52,8 +52,7 @@ public class SmsCodeScreen extends AppScreenBase{
 		verify.assertEquals(findElement(smsLabelNotRecieve, driver).getText(), smsLabelNotRecieveText, "Not recieve ?");
 	}
 
-	public void sendSmsAgainBtnClick() {
-		waitForClickable(sendSmsAgainBtn);
+	public void sendSmsAgainBtnClick() throws Exception {		
 		Log.info("SMS Code Screen: Click 'send sms again'");
 		findElement(sendSmsAgainBtn, driver).click();
 		if(isWaitPopupDisplayed()) {
@@ -62,8 +61,7 @@ public class SmsCodeScreen extends AppScreenBase{
 		delay();
 	}
 
-	public void nextBtnClick() {				
-		waitForClickable(nextBtn);				
+	public void nextBtnClick() throws Exception {					
 		Log.info("SMS Code Screen: Click 'Next'");
 		findElement(nextBtn, driver).click();
 		delay();
@@ -72,8 +70,7 @@ public class SmsCodeScreen extends AppScreenBase{
         }	
 	}
 
-	public void enterSmsCode(String smsCode) {
-		waitFor(smsCodeField);
+	public void enterSmsCode(String smsCode) throws Exception {		
 		Log.info("SMS Code Screen: Enter sms code");
 		findElement(smsCodeField, driver).clear();
 		findElement(smsCodeField, driver).sendKeys(smsCode);

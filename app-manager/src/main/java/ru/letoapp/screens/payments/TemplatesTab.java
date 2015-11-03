@@ -41,7 +41,7 @@ public class TemplatesTab extends AppScreenBase{
 		return templateContextMenu;
 	}
 	
-	public void addToFavoriteBtnClick(String templateName) {
+	public void addToFavoriteBtnClick(String templateName) throws Exception {
 		Log.info("Payments and transfers screen, templates tab: Add to favorite: " + templateName);
 		findElement(By.xpath("//TextView[@value='" + templateName + "']/../preceding-sibling::ImageButton"), driver).click();
 		delay();
@@ -53,25 +53,25 @@ public class TemplatesTab extends AppScreenBase{
 		Log.info("isSelected: " + findElement(By.xpath("//TextView[@value='" + templateName + "']/../preceding-sibling::ImageButton"), driver).isSelected());		
 	}*/
 	
-	public void payWithTemplate(String templateName) {
+	public void payWithTemplate(String templateName) throws Exception {
 		Log.info("Payments and transfers screen, templates tab: Pay with template: " + templateName);
 		findElement(By.xpath("//TextView[@value='" + templateName + "']/.."), driver).click();
 		delay();
 	}
 	
-	public void openTemplateContextMenu(String templateName) {
+	public void openTemplateContextMenu(String templateName) throws Exception {
 		Log.info("Payments and transfers screen, templates tab: Open context menu: " + templateName);
 		findElement(By.xpath("//TextView[@value='" + templateName + "']/../following-sibling::ImageButton"), driver).click();
 		delay();
 	}
 
-	public void removeFromFavoriteBtnClick(String templateName) {
+	public void removeFromFavoriteBtnClick(String templateName) throws Exception {
 		Log.info("Payments and transfers screen, templates tab: remove from favorite: " + templateName);
 		findElement(By.xpath("//TextView[@value='" + templateName + "']/../preceding-sibling::ImageButton"), driver).click();
 		delay();
 	}
 	
-	public boolean isLoadingErrorExist() {		
+	public boolean isLoadingErrorExist() throws Exception {		
 		if(findElement(loadingError, driver).isDisplayed()){
 			Log.error("Templates tab: Loading ERROR");
 			takeScreenshot();
@@ -80,13 +80,13 @@ public class TemplatesTab extends AppScreenBase{
 		else return false;		
 	}
 
-	public void verify() {
+	public void verify() throws Exception {
 		Log.info("Verify payments and transfers screen, templates tab");
 		verify.assertEquals(findElement(templatesHint, driver).getText(), templatesHintText, "Verify payments and transfers screen: Hint");
 		verify.assertAll();		
 	}
 
-	public boolean isTemplateExist(String templateName) {
+	public boolean isTemplateExist(String templateName) throws Exception {
 		Log.info("Templates tab: is template" + templateName + "exist");
 		if(findElement(By.xpath("//TextView[@value='" + templateName + "']"), driver) != null) {
 			Log.info("true");

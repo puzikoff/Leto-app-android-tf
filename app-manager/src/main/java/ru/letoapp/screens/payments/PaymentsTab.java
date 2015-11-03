@@ -13,13 +13,13 @@ public class PaymentsTab extends AppScreenBase{
 		super(driver);
 	}
 
-	public void categoryClick(String categoryName) {
+	public void categoryClick(String categoryName) throws Exception {
 		Log.info("Payments tab: Choose category - " + categoryName);
 		findElement(By.xpath("//TextView[@value='" + categoryName + "']"), driver).click();		
 		delay();		
 	}
 	
-	public void paymentClick(String paymentName) {
+	public void paymentClick(String paymentName) throws Exception {
 		Log.info("Payments tab: Choose payment - " + paymentName);
 		clickAndWaitSpinerToVanish(By.xpath("//TextView[@value='" + paymentName + "']"));				
 	}

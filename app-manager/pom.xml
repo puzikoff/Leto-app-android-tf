@@ -30,7 +30,7 @@
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
-			<version>6.9.6</version>					
+			<version>6.9.8</version>					
 		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
@@ -40,7 +40,7 @@
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
-		<version>4.5</version>
+		<version>4.5.1</version>
 		</dependency>	
 		<dependency>
             <groupId>org.apache.velocity</groupId>
@@ -74,25 +74,7 @@
 						<target>1.7</target>
 						<encoding>UTF-8</encoding>
 					</configuration>
-				</plugin>
-		<!-- 		<plugin>
-       				<groupId>org.apache.maven.plugins</groupId>
-       				<artifactId>maven-surefire-plugin</artifactId>
-       				<version>2.12.2</version>     
-       				<configuration>
-     				    <properties>                    		
-                    		<property>
-                        		<name>listener</name>
-                        		<value>org.uncommons.reportng.HTMLReporter</value>
-                    		</property>
-                		</properties>  
-       				    <encoding>UTF-8</encoding>
-       		 		    <suiteXmlFiles>
-           					<suiteXmlFile>contracts_screens_testsuite.xml</suiteXmlFile>
-         				</suiteXmlFiles> 
-            	<workingDirectory>target/</workingDirectory>             				
-			       </configuration>    		  							
-     			</plugin>-->
+				</plugin>	
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-eclipse-plugin</artifactId>

@@ -14,7 +14,7 @@ public class ResetSecurityCodeScreen extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void resetSecurityCodeBtnClick() {
+	public void resetSecurityCodeBtnClick() throws Exception {
 		Log.info("Reset Security Code Screen: Reset security code button click");
 		click(resetSecurityCodeBtn);
 	}

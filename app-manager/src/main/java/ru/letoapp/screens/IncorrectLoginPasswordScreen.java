@@ -25,7 +25,7 @@ public class IncorrectLoginPasswordScreen extends AppScreenBase{
 		super(driver);		
 	}
 	
-	public void verifyScreen() {
+	public void verifyScreen() throws Exception {
 		Log.info("Incorrect Login or Password Screen: Verify screen");
 		verify.assertEquals(findElement(title, driver).getText(), titleText, "Title");		
 		verify.assertEquals(findElement(subTitle, driver).getText(), subTitleText, "Subtitle");		
@@ -36,12 +36,12 @@ public class IncorrectLoginPasswordScreen extends AppScreenBase{
 		verify.assertAll();		
 	}
 
-	public void tryAgainBtnClick() {		
+	public void tryAgainBtnClick() throws Exception {		
 		Log.info("Incorrect Login or Password Screen: Try again button click");
 		click(tryAgainBtn);
 	}
 	
-	public void resetCredentialsBtnClick() {
+	public void resetCredentialsBtnClick() throws Exception {
 		Log.info("Incorrect Login or Password Screen: Reset credentials button click");
 		click(resetCredentialsBtn);				
 	}

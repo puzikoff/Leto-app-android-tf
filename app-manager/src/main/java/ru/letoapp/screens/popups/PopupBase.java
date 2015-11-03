@@ -16,21 +16,21 @@ public class PopupBase extends ScreenBase{
 		super(driver);
 	}
 	
-	public void nextBtnClick () {
+	public void nextBtnClick () throws Exception {
 		waitForClickable(nextBtn);
 		Log.info("Popup: Click next button");
 		findElement(nextBtn, driver).click();
 		delay();
 	}
 	
-	public void yesBtnClick () {
+	public void yesBtnClick () throws Exception {
 		waitForClickable(nextBtn);
 		Log.info("Popup: Click yes button");
 		findElement(nextBtn, driver).click();
 		delay();
 	}
 	
-	public void noBtnClick () {
+	public void noBtnClick () throws Exception {
 		waitForClickable(noBtn);
 		Log.info("Popup: Click no button");
 		findElement(noBtn, driver).click();

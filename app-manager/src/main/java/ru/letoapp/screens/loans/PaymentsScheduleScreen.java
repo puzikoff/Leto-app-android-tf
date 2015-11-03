@@ -13,7 +13,7 @@ public class PaymentsScheduleScreen extends AppScreenBase{
 		super(driver);
 	}
 
-	public void verify() {
+	public void verify() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), titleText, "Payments schedule screen: title");
 		verify.assertAll();		
 	}

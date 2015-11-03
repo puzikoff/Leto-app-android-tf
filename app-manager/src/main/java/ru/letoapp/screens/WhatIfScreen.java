@@ -78,7 +78,7 @@ public class WhatIfScreen extends AppScreenBase{
 	By whatIfCardNotReturnedWidgetText = By.xpath("//TextView[@value='Банкомат не вернул карту']/../../../..//TextView[@id='label_description']");
 	String whatIfCardNotReturnedText = "Установите запрет на снятие денежных средств и обратитесь в банк, чтобы заблокировать карту. Заблокировать карту можно при обращении в клиентский центр, на стойку продаж или по звонку в клиентскую службу.\n\nДалее необходимо произвести перевыпуск карты, обратившись в клиентский центр или на стойку продаж, при себе необходимо иметь паспорт.";
 		
-	public void verifyCardWhatIfScreen() {
+	public void verifyCardWhatIfScreen() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), titleText, "Title");
 		verify.assertEquals(findElement(whatIfCardLostWidgetText, driver).getText(), whatIfCardLostText, "What if screen: what if card lost text");
 		verify.assertEquals(findElement(whatIfCardBrokenWidgetText, driver).getText(), whatIfCardBrokenText, "What if screen: what if card broken text");		
@@ -89,7 +89,7 @@ public class WhatIfScreen extends AppScreenBase{
 		verify.assertAll();		
 	}
 	
-	public void verifyLoanWhatIfScreen() {
+	public void verifyLoanWhatIfScreen() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), titleText, "Title");
 		verify.assertTrue((findElement(payMoreWidget, driver).isDisplayed()), "What if screen: pay more widget");						
 		verify.assertTrue(findElement(payLessWidgetText, driver).getText().contains(payLessText), "What if screen: pay less text");		
@@ -101,66 +101,66 @@ public class WhatIfScreen extends AppScreenBase{
 		verify.assertAll();		
 	}
 	
-	public void verifyDepositWhatIfScreen() {
+	public void verifyDepositWhatIfScreen() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), titleText, "Title");
 		verify.assertAll();		
 	}
 	
 	/* ------ Card widgets ------------*/
 	
-	public void whatIfCardLostWidgetClick(){
+	public void whatIfCardLostWidgetClick() throws Exception{
 		Log.info("What if screen: what if card lost widget click");
 		click(whatIfCardLostWidget);
 	}
 	
-	public void whatIfCardBrokenWidgetClick(){
+	public void whatIfCardBrokenWidgetClick() throws Exception{
 		Log.info("What if screen: what if card broken widget click");
 		click(whatIfCardBrokenWidget);
 	}
 	
-	public void whatIfCardAbroadWidgetClick(){
+	public void whatIfCardAbroadWidgetClick() throws Exception{
 		Log.info("What if screen: what if card abroad widget click");
 		click(whatIfCardAbroadWidget);
 	}
 	
-	public void whatIfNoAdditionWidgetClick(){
+	public void whatIfNoAdditionWidgetClick() throws Exception{
 		Log.info("What if screen: what if no addition widget click");
 		click(whatIfNoAdditionWidget);
 	}
 	
-	public void whatIfForgotPINWidgetClick(){
+	public void whatIfForgotPINWidgetClick() throws Exception{
 		Log.info("What if screen: what if forgot PIN widget click");
 		click(whatIfForgotPINWidget);
 	}
 	
-	public void whatIfCardNotReturnedWidgetClick(){
+	public void whatIfCardNotReturnedWidgetClick() throws Exception{
 		Log.info("What if screen: what if card not returned widget click");
 		click(whatIfCardNotReturnedWidget);
 	}
 		
 	/* ------ Loan widgets ------------*/
 	
-	public void payLessWidgetClick(){
+	public void payLessWidgetClick() throws Exception{
 		Log.info("What if screen: Pay less widget click");
 		click(payLessWidget);
 	}
 			
-	public void insuranceCaseWidgetClick(){
+	public void insuranceCaseWidgetClick() throws Exception{
 		Log.info("What if screen: Insurance case widget click");
 		click(insuranceCaseWidget);
 	}
 	
-	public void dismissPaymentWidgetClick(){
+	public void dismissPaymentWidgetClick() throws Exception{
 		Log.info("What if screen: Dismiss payment widget click");
 		click(skipPaymentWidget);
 	}
 	
-	public void decreasePaymentWidgetClick(){
+	public void decreasePaymentWidgetClick() throws Exception{
 		Log.info("What if screen: Decrease payment widget click");
 		click(reducePaymentWidget);
 	}
 		
-	public void payAllClick() {
+	public void payAllClick() throws Exception {
 		Log.info("What if screen: Pay all widget click");
 		findElement(payAllWidget, driver).click();
 		if(findElement(payAll, driver) != null) {			
@@ -173,7 +173,7 @@ public class WhatIfScreen extends AppScreenBase{
 		}
 	}
 	
-	public void payMoreClick() {
+	public void payMoreClick() throws Exception {
 		Log.info("What if screen: Pay more widget click");
 		findElement(payMoreWidget, driver).click();
 		if(findElement(payMore, driver) != null) {
@@ -186,7 +186,7 @@ public class WhatIfScreen extends AppScreenBase{
 		}
 	}
 	
-	public void skipPaymentClick() {
+	public void skipPaymentClick() throws Exception {
 		Log.info("What if screen: Skip payment widget click");
 		findElement(skipPaymentWidget, driver).click();
 		if(findElement(skipPayment, driver) != null) {
@@ -199,7 +199,7 @@ public class WhatIfScreen extends AppScreenBase{
 		}
 	}
 	
-	public void changePayDateClick() {
+	public void changePayDateClick() throws Exception {
 		Log.info("What if screen: Change pay date widget click");
 		findElement(changePayDateWidget, driver).click();
 		if(findElement(changePayDate, driver) != null) {
@@ -212,7 +212,7 @@ public class WhatIfScreen extends AppScreenBase{
 		}
 	}
 	
-	public void reducePaymentClick() {
+	public void reducePaymentClick() throws Exception {
 		Log.info("What if screen: reduce payment widget click");
 		findElement(reducePaymentWidget, driver).click();
 		if(findElement(reducePayment, driver) != null) {
@@ -225,27 +225,27 @@ public class WhatIfScreen extends AppScreenBase{
 		}
 	}
 
-	public void payMoreWidgetClick() {
+	public void payMoreWidgetClick() throws Exception {
 		Log.info("What if screen: Pay more widget click");
 		click(payMoreWidget);	
 	}
 	
-	public void payAllWidgetClick() {
+	public void payAllWidgetClick() throws Exception {
 		Log.info("What if screen: Pay all widget click");
 		click(payAllWidget);		
 	}
 	
-	public void skipPaymentWidgetClick() {
+	public void skipPaymentWidgetClick() throws Exception {
 		Log.info("What if screen: Skip payment widget click");
 		click(skipPaymentWidget);		
 	}
 	
-	public void reducePaymentWidgetClick() {
+	public void reducePaymentWidgetClick() throws Exception {
 		Log.info("What if screen: Reduce payment widget click");
 		click(reducePaymentWidget);		
 	}
 	
-	public void changePaymentDateWidgetClick() {
+	public void changePaymentDateWidgetClick() throws Exception {
 		Log.info("What if screen: Change payment date widget click");
 		click(changePayDateWidget);		
 	}

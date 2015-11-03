@@ -32,7 +32,7 @@ public class LoanScreen extends AppScreenBase{
 		editDisplayName.setDriver(driver);
 	}
 	
-	public void verify() {
+	public void verify() throws Exception {
 		Log.info("Loan screen: verify screen");
 		Log.info(getTitleFromActionBar());
 		verify.assertEquals(getTitleFromActionBar(), actionBarTitle , "Loan screen: title");
@@ -55,17 +55,17 @@ public class LoanScreen extends AppScreenBase{
 		return editDisplayName;
 	}
 	
-	public void infoTabClick() {
+	public void infoTabClick() throws Exception {
 		Log.info("Loan Screen: Information tab click");
 		click(infoTabBtn);
 	}
 
-	public void managementTabClick() {
+	public void managementTabClick() throws Exception {
 		Log.info("Loan Screen: Managementd tab click");
 		click(managementTabBtn);		
 	}
 	
-	public void paymentTabClick() {
+	public void paymentTabClick() throws Exception {
 		Log.info("Loan Screen: Payment tab click");
 		click(paymentTabBtn);
 	}

@@ -15,7 +15,7 @@ public class HowToUseCardScreen extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verify() {
+	public void verify() throws Exception {
 		Log.info("How to use card screen: verify");
 		verify.assertEquals(getTitleFromActionBar(), title);	
 		verify.assertTrue(findElement(howToUseCard, driver).getText().contains(howToUseCardText), "How to use card text");

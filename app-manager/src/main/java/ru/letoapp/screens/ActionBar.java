@@ -17,22 +17,22 @@ public class ActionBar extends ScreenBase{
 		super(driver);
 	} 	 
 	
-	public void menuBtnClick() {
+	public void menuBtnClick() throws Exception {
 		Log.info("Action bar: Menu button click");
 		click(menuBtn);
 	}
 	 
-	public void navUpBtnClick() {
+	public void navUpBtnClick() throws Exception {
 		Log.info("Action bar: Click NavUp button");
 		click(navUpBtn);
 	}
 	 
-	public void contactsBtnClick() {		
+	public void contactsBtnClick() throws Exception {		
 		Log.info("Action bar: Click contacts button");	
 		click(contactsBtn);
 	}
 	 
-	public String getActionBarTitle() {		
+	public String getActionBarTitle() throws Exception {		
 		Log.info("Action bar: Get title");
 		waitFor(actionBarTitle);
 		Log.info("Action bar: Title: " + findElement(actionBarTitle, driver).getText());

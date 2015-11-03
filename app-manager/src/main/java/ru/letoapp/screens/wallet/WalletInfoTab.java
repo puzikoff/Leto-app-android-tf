@@ -15,14 +15,14 @@ public class WalletInfoTab extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verifyZeroWallet() {	
+	public void verifyZeroWallet() throws Exception {	
 		verify.assertTrue(findElement(openedDateBlock, driver).isDisplayed(), "Opened date ");
 		verify.assertTrue(findElement(contractNumberBlock, driver).isDisplayed(), "contract number");
 		verify.assertTrue(findElement(walletOperationsBtn, driver).isDisplayed(), "wallet operations button");
 		verify.assertAll();
 	}
 	
-	public void walletOperationsBtnClick() {
+	public void walletOperationsBtnClick() throws Exception {
 		Log.info("Wallet Screen: Wallet operations button click");
 		click(walletOperationsBtn);
 	}

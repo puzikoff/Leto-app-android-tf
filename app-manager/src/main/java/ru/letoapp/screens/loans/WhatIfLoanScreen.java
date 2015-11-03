@@ -26,62 +26,62 @@ public class WhatIfLoanScreen extends AppScreenBase{
 		super(driver);		
 	}
 	
-	public void payMoreWidgetClick(){
+	public void payMoreWidgetClick() throws Exception{
 		Log.info("What if screen: Pay more widget click");
 		click(payMoreWidget);
 	}
 	
-	public void payLessWidgetClick(){
+	public void payLessWidgetClick() throws Exception{
 		Log.info("What if screen: Pay less widget click");
 		click(payLessWidget);
 	}
 	
-	public void payAllWidgetClick(){
+	public void payAllWidgetClick() throws Exception{
 		Log.info("What if screen: Pay all widget click");
 		click(payAllWidget);
 	}
 	
-	public void insuranceCaseWidgetClick(){
+	public void insuranceCaseWidgetClick() throws Exception{
 		Log.info("What if screen: Insurance case widget click");
 		click(insuranceCaseWidget);
 	}
 	
-	public void dismissPaymentWidgetClick(){
+	public void dismissPaymentWidgetClick() throws Exception{
 		Log.info("What if screen: Dismiss payment widget click");
 		click(dismissPaymentWidget);
 	}
 	
-	public void decreasePaymentWidgetClick(){
+	public void decreasePaymentWidgetClick() throws Exception{
 		Log.info("What if screen: Decrease payment widget click");
 		click(decreasePaymentWidget);
 	}
 	
-	public void changePayDateWidgetClick(){
+	public void changePayDateWidgetClick() throws Exception{
 		Log.info("What if screen: Change pay date widget click");
 		click(changePayDateWidget);
 	}
 	
-	public void payAllClick() {		
+	public void payAllClick() throws Exception {		
 		Log.info("What if screen: Pay all click");
 		clickAndWaitSpinerToVanish(payAll);	
 	}
 	
-	public void payMoreClick() {		
+	public void payMoreClick() throws Exception {		
 		Log.info("What if screen: Pay more click");
 		clickAndWaitSpinerToVanish(payMore);
 	}
 		
-	public void turnOffInsuranceClick() {		
+	public void turnOffInsuranceClick() throws Exception {		
 		Log.info("What if screen: turn Off Insurance click");
 		clickAndWaitSpinerToVanish(turnOffInsurance);	
 	}
 	
-	public void changePayDateClick() {		
+	public void changePayDateClick() throws Exception {		
 		Log.info("What if screen: changePayDate click");
 		clickAndWaitSpinerToVanish(changePayDate);	
 	}
 
-	public void verify() {
+	public void verify() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), titleText, "What if screen: title");
 		verify.assertAll();		
 	}

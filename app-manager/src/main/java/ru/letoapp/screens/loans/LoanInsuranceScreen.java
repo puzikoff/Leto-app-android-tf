@@ -13,7 +13,7 @@ public class LoanInsuranceScreen extends AppScreenBase{
 		super(driver);
 	}
 
-	public void verify() {
+	public void verify() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), titleText , "Loan insurance screen: title");
 		verify.assertAll();		
 	}

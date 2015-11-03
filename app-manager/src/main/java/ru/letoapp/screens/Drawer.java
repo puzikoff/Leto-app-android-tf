@@ -20,17 +20,17 @@ public class Drawer extends ScreenBase{
 		super(driver);		
 	}
 	
-	public void contactsBtnClick() {		
+	public void contactsBtnClick() throws Exception {		
 		Log.info("Drawer: Contacts button click");
 		click(contactsBtn);
 	}
 	
-	public void aboutBankBtnClick() {		
+	public void aboutBankBtnClick() throws Exception {		
 		Log.info("Drawer: About bank button click");
 		click(aboutBankBtn);
 	}
 	
-	public void exitBtnClick() {		
+	public void exitBtnClick() throws Exception {		
 		Log.info("Drawer: Exit button click");
 		click(exitBtn);
 	}
@@ -45,7 +45,7 @@ public class Drawer extends ScreenBase{
 			return false;
 	}
 
-	public boolean isTemplateDisplayed(String templateName) {
+	public boolean isTemplateDisplayed(String templateName) throws Exception {
 		if(findElement(By.xpath("//TextView[@value='" + templateName + "']"), driver).isDisplayed()) {
 			Log.info("Drawer: Template '" + templateName + "' exist");
 			return true;

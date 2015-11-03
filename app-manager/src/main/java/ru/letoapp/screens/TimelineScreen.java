@@ -22,37 +22,37 @@ public class TimelineScreen extends AppScreenBase{
 		super(driver);
 	}
 
-	public void verifyLoanOperationsScreen() {
+	public void verifyLoanOperationsScreen() throws Exception {
 		verify.assertTrue(getTitleFromActionBar().contains(loanOperationsTitleText), "Loan operations screen: title");
 		verify.assertAll();	
 	}
 	
-	public void verifyCardOperationsScreen() {
+	public void verifyCardOperationsScreen() throws Exception {
 		verify.assertTrue(getTitleFromActionBar().contains(cardOperationsTitleText), "Card operations screen: title");
 		verify.assertAll();	
 	}
 	
-	public void verifyDepositOperationsScreen() {
+	public void verifyDepositOperationsScreen() throws Exception {
 		verify.assertTrue(getTitleFromActionBar().contains(depositOperationsTitleText), "deposit operations screen: title");
 		verify.assertAll();	
 	}
 	
-	public void verifyWalletOperationsScreen() {
+	public void verifyWalletOperationsScreen() throws Exception {
 		verify.assertTrue(getTitleFromActionBar().contains(walletOperationsTitleText), "wallet operations screen: title");
 		verify.assertAll();		
 	}
 	
-	public void verifyConnectionServicesHistoryScreen() {
+	public void verifyConnectionServicesHistoryScreen() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), connectionServicesHistoryTitleText, "Connection services history screen: title");
 		verify.assertAll();	
 	}
 
-	public void verifyHoldsScreen() {
+	public void verifyHoldsScreen() throws Exception {
 		verify.assertTrue(getTitleFromActionBar().contains(holdsTitleText), "Holds screen: title");
 		verify.assertAll();	
 	}
 	
-	public boolean isLoadingErrorExist() {		
+	public boolean isLoadingErrorExist() throws Exception {		
 		if(findElement(loadingError, driver)!= null){
 			Log.error("Timeline screen: Loading ERROR");
 			takeScreenshot();

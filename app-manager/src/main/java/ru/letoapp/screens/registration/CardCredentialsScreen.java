@@ -52,7 +52,7 @@ public class CardCredentialsScreen extends AppScreenBase{
 		return incorrectCardNumberOrAccesCodePopup;
 	}
 	
-	public void verifyScreen() {
+	public void verifyScreen() throws Exception {
 		verify.assertEquals(getActionBarTitle(), actionBarTitleText, "Action bar title");
 		verify.assertEquals(findElement(cardNumberTitle, driver).getText(), cardNumberTitleText, "Card number title");		
 		verify.assertEquals(findElement(accessCodeTitle, driver).getText(), accessCodeTitleText, "Access code title");
@@ -62,21 +62,21 @@ public class CardCredentialsScreen extends AppScreenBase{
 		verify.assertAll();
 	}
 
-	public void enterCardNumber(String cardNumber) {
+	public void enterCardNumber(String cardNumber) throws Exception {
 		waitFor(cardNumberField);
 		Log.info("Card Credentials Screen: Entering card number");
 		findElement(cardNumberField, driver).clear();
 		findElement(cardNumberField, driver).sendKeys(cardNumber);		
 	}
 
-	public void enterAccessCode(String accessCode) {
+	public void enterAccessCode(String accessCode) throws Exception {
 		waitFor(accessCodeField);
 		Log.info("Card Credentials Screen: Entering access code");
 		findElement(accessCodeField, driver).clear();
 		findElement(accessCodeField, driver).sendKeys(accessCode);
 	}
 
-	public void NextBtnClick() {
+	public void NextBtnClick() throws Exception {
 		waitFor(nextBtn);
 		Log.info("Card Credentials Screen: Click next button");
 		findElement(nextBtn, driver).click();
@@ -86,7 +86,7 @@ public class CardCredentialsScreen extends AppScreenBase{
         }	
 	}
 
-	public void forgotCardNumberBtnClick() {
+	public void forgotCardNumberBtnClick() throws Exception {
 		waitFor(forgetAccessLink);
 		Log.info("Card Credentials Screen: Click forget access code or card number button");
 		findElement(forgetAccessLink, driver).click();	

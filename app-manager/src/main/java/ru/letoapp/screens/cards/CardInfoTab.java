@@ -21,25 +21,23 @@ public class CardInfoTab extends AppScreenBase{
 	By statusBlock = By.xpath("//TextView[@value='СТАТУС']");
 	By contractNumberBlock = By.xpath("//TextView[@value='НОМЕР ДОГОВОРА']");
 	By contractDateBlock = By.xpath("//TextView[@value='ДАТА ДОГОВОРА']");
-	By paymentBlock = By.xpath("//TextView[@value='ПЛАТЁЖ']");
+//	By paymentBlock = By.xpath("//TextView[@value='ПЛАТЁЖ']");
 	
 	public CardInfoTab(WebDriver driver) {
 		super(driver);
 	}	
 	
-	public void howToUseCardClick() {
-		waitFor(howToUseCardBtn);
+	public void howToUseCardClick() throws Exception {		
 		Log.info("Card screen, info tab: How to use card button click");
 		click(howToUseCardBtn);
 	}
 	
-	public void cardOperationsClick() {
-		waitFor(cardOperationsBtn);
+	public void cardOperationsClick() throws Exception {		
 		Log.info("Card screen, info tab: Card operations button click");
 		clickAndWaitSpinerToVanish(cardOperationsBtn);	
 	}
 
-	public void verify() {
+	public void verify() throws Exception {
 		Log.info("Card screen, info tab: verify");
 		verify.assertTrue(findElement(howToUseCardBtn, driver).isDisplayed(), "How to use card");
 		verify.assertTrue(findElement(cardOperationsBtn, driver).isDisplayed(), "Card operations");
@@ -52,11 +50,11 @@ public class CardInfoTab extends AppScreenBase{
 		verify.assertTrue(findElement(statusBlock, driver).isDisplayed(), "Status");
 		verify.assertTrue(findElement(contractNumberBlock, driver).isDisplayed(), "Contract number");
 		verify.assertTrue(findElement(contractDateBlock, driver).isDisplayed(), "Contract date");
-		verify.assertTrue(findElement(paymentBlock, driver).isDisplayed(), "Payment");
+//		verify.assertTrue(findElement(paymentBlock, driver).isDisplayed(), "Payment");
 		verify.assertAll();
 	}
 	
-	public String getPaymentDate() {
+	public String getPaymentDate() throws Exception {
 		Log.info("Get payment date from info tab");		
 		String paymentDate = findElement(paymentDateBlockText, driver).getText();
 		Log.info("Payment date block text: " + paymentDate);

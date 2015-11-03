@@ -20,7 +20,7 @@ public class CreditDetailsScreen extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verify() {
+	public void verify() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), title, "title");
 		verify.assertTrue(findElement(contractBlock, driver).isDisplayed(), "Contract block");
 		verify.assertTrue(findElement(paymentDateBlock, driver).isDisplayed(), "Payment date block");

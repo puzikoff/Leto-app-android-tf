@@ -11,30 +11,30 @@ public class ReducePaymentScreen extends AppScreenBase{
 	String titleText = "Уменьшаю платеж";
 	By hint = By.xpath("//TextView[@id='label_content']");	
 	String hintText = "Простое решение поможет снизить размер ежемесячного платежа (начиная со следующего), увеличив срок кредита";
-	By connectionPossibilityBlock = By.xpath("//TextView[@value='ВОЗМОЖНОСТЬ ПОДКЛЮЧЕНИЯ']");
-	String nextPaymentText = "СЛЕДУЮЩИЙ ПЛАТЁЖ";
-	By nextPaymentBlock = By.xpath("//TextView[@value='СЛЕДУЮЩИЙ ПЛАТЁЖ']");
+	By connectionPossibilityBlock = By.xpath("//TextView[@value='Возможность подключения']");
+	String nextPaymentText = "Следующий платеж";
+	By nextPaymentBlock = By.xpath("//TextView[@value='Следующий платёж']");
 	By nextPaymentDefault = By.xpath("//ComparatorView_[1]//TextView[@id='label_default']");
 	By nextPaymentNew = By.xpath("//ComparatorView_[1]//TextView[@id='label_text']");
 	By nextPaymentDifference = By.xpath("//ComparatorView_[1]//TextView[@id='label_comment']");
-	String rateText = "СТАВКА ПО КРЕДИТУ";
-	By rateBlock = By.xpath("//TextView[@value='СТАВКА ПО КРЕДИТУ']");
+	String rateText = "Ставка по кредиту";
+	By rateBlock = By.xpath("//TextView[@value='Ставка по кредиту']");
 	By rateDefault = By.xpath("//ComparatorView_[2]//TextView[@id='label_default']");
 	By rateNew = By.xpath("//ComparatorView_[2]//TextView[@id='label_text']");	
 	By rateDifference = By.xpath("//ComparatorView_[2]//TextView[@id='label_comment']");
-	String planDateText = "ПЛАНОВЫЙ СРОК ПОГАШЕНИЯ";
-	By closingDateBlock = By.xpath("//TextView[@value='ПЛАНОВЫЙ СРОК ПОГАШЕНИЯ']");
+	String planDateText = "Плановый срок погашения";
+	By closingDateBlock = By.xpath("//TextView[@value='Плановый срок погашения']");
 	By planDateDefault = By.xpath("//ComparatorView_[3]//TextView[@id='label_default']");
 	By planDateNew = By.xpath("//ComparatorView_[3]//TextView[@id='label_text']");
 	By planDateDifference = By.xpath("//ComparatorView_[3]//TextView[@id='label_comment']");
-	By paymentDifferenceBlock = By.xpath("//TextView[contains(@value, 'ВЫ УПЛАТИТЕ')]");	
+	By paymentDifferenceBlock = By.xpath("//TextView[contains(@value, 'Вы уплатите')]");	
 	By connectBtn = By.xpath("//Button[@id='button']");
 	
 	public ReducePaymentScreen(WebDriver driver) {
 		super(driver);		
 	}
 	
-	public void connectBtnClick(){
+	public void connectBtnClick() throws Exception{
 		Log.info("Reduce paymnet service screen: Connect button click");
 		findElement(connectBtn, driver).click();
 		delay();
@@ -43,7 +43,7 @@ public class ReducePaymentScreen extends AppScreenBase{
         }	
 	}
 	
-	public void verify() {
+	public void verify() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), titleText, "Reduce payment screen: Title");
 		verify.assertTrue(findElement(hint, driver).isDisplayed(), "Reduce payment screen: hint");
 		verify.assertTrue(findElement(connectionPossibilityBlock, driver).isDisplayed(), "Reduce payment screen: possibility block");

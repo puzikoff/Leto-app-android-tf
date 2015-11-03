@@ -28,7 +28,7 @@ public class LoanInfoTab extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verify() {
+	public void verify() throws Exception {
 		verify.assertTrue(findElement(contractBtn, driver).isDisplayed(), "Contract");
 		verify.assertTrue(findElement(creditOperationsBtn, driver).isDisplayed(), "Credit operations");
 		verify.assertTrue(findElement(insuranceBtn, driver) != null, "Insurance");
@@ -40,17 +40,17 @@ public class LoanInfoTab extends AppScreenBase{
 		verify.assertAll();
 	}
 	
-	public void contractBtnClick() {		
+	public void contractBtnClick() throws Exception {		
 		Log.info("Loan info tab: contract butoon click");
 		clickAndWaitSpinerToVanish(contractBtn);	
 	}
 	
-	public void creditOperationsBtnClick() {		
+	public void creditOperationsBtnClick() throws Exception {		
 		Log.info("Loan info tab: Credit operations button click");
 		clickAndWaitSpinerToVanish(creditOperationsBtn);	
 	}
 	
-	public void insuranceBtnClick() {		
+	public void insuranceBtnClick() throws Exception {		
 		Log.info("Loan info tab: Insurance button click");
 		if(isInsuranceBtnClickable()) {
 			Log.info("Loan info tab: Insurance button clickable");
@@ -60,7 +60,7 @@ public class LoanInfoTab extends AppScreenBase{
 			Log.info("Loan info tab: Insurance button is not clickable");
 	}
 	
-	public void paymentsScheduleBtnClick() {		
+	public void paymentsScheduleBtnClick() throws Exception {		
 		Log.info("Loan info tab: Payments schedule button click");
 		clickAndWaitSpinerToVanish(paymentsScheduleBtn);	
 	}

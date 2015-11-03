@@ -35,7 +35,7 @@ public class BankRequisitesScreen extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verifyScreen() {		
+	public void verifyScreen() throws Exception {		
 		verify.assertEquals(findElement(fullName, driver).getText(), fullNameText, "Full name");
 		verify.assertEquals(findElement(shortName, driver).getText(), shortNameText, "Short name");
 		verify.assertEquals(findElement(lawAddress, driver).getText(), lawAddressText, "Law address");

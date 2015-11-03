@@ -24,14 +24,14 @@ public class StatusScreen extends AppScreenBase{
 		super(driver);
 	}
 
-	public void editTemplateName(String templateName) {
+	public void editTemplateName(String templateName) throws Exception {
 		Log.info("Payment status screen: edit template name, new name: " + templateName);
 		findElement(editTemplateNameFiled, driver).clear();
 		findElement(editTemplateNameFiled, driver).sendKeys(templateName);
 		delay();
 	}
 	
-	public void createTemplaetBtnClick() {
+	public void createTemplaetBtnClick() throws Exception {
 		Log.info("Payment status screen: create template btn click");
 		clickAndWaitSpinerToVanish(createTemplateBtn);		
 	}
@@ -42,17 +42,17 @@ public class StatusScreen extends AppScreenBase{
 		waitForVanish(progressBar);	
 	}
 	
-	public String getComission() {
+	public String getComission() throws Exception {
 		Log.info("Payment tool screen: comission: " + findElement(comission, driver).getText());
 		return onlyNumbers(findElement(comission, driver).getText());
 	}
 	
-	public String getAmount() {
+	public String getAmount() throws Exception {
 		Log.info("Payment tool screen: amount: " + findElement(amount, driver).getText());
 		return onlyNumbers(findElement(amount, driver).getText());
 	}
 	
-	public String getPhoneNumber() {
+	public String getPhoneNumber() throws Exception {
 		Log.info("Payment tool screen: phoneNumber: " + findElement(phoneNumber, driver).getText());
 		return onlyNumbers(findElement(phoneNumber, driver).getText());
 	}

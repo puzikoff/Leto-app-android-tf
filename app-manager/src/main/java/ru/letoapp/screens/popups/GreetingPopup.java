@@ -8,7 +8,7 @@ public class GreetingPopup extends PopupBase{
 	String titleText = "Информация";
 	String nextBtnText = "Закрыть";
 	
-	public void verifyGreeting() {		
+	public void verifyGreeting() throws Exception {		
 		waitFor(nextBtn);
 		Log.info("Greeting popup: Verify greeting window");
 		verify.assertEquals(findElement(message, driver).getText(), messageText, "Greeting message text");

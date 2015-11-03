@@ -44,7 +44,7 @@ public class DepositTab extends AppScreenBase{
 		super(driver);
 	}
 
-	public void verifyOpenDeposit() {
+	public void verifyOpenDeposit() throws Exception {
 		verify.assertTrue(findElement(depositBreakdown, driver) != null, "deposit breakdown container");		
 		verify.assertTrue(findElement(depositInfo, driver) != null, "Deposit info container");
 		verify.assertTrue(findElement(interestRatesBlock, driver).isDisplayed(), "Interest rates block");
@@ -53,7 +53,7 @@ public class DepositTab extends AppScreenBase{
 		verify.assertAll();				
 	}
 	
-	public void verifyClosedDeposit() {
+	public void verifyClosedDeposit() throws Exception {
 		verify.assertTrue(findElement(depositBreakdown, driver) != null, "deposit breakdown container");
 		verify.assertTrue(findElement(interestRatesBlock, driver).isDisplayed(), "Interest rates block");
 		verify.assertTrue(findElement(closedDateBlock, driver).isDisplayed(), "Closed date block");
@@ -61,7 +61,7 @@ public class DepositTab extends AppScreenBase{
 		verify.assertAll();		
 	}
 	
-	public void verifyCanceledDeposit() {
+	public void verifyCanceledDeposit() throws Exception {
 		verify.assertTrue(findElement(depositTerm, driver).isDisplayed(), "Deposit term block");
 		verify.assertTrue(findElement(interestRatesBlock, driver).isDisplayed(), "Interest rates block");
 		verify.assertTrue(findElement(canceledMessage, driver).isDisplayed(), "canceled message");
@@ -70,45 +70,45 @@ public class DepositTab extends AppScreenBase{
 		verify.assertAll();		
 	}
 	
-	public void unwrapDepositInfo() {
+	public void unwrapDepositInfo() throws Exception {
 		Log.info("Deposit screen: unwrap deposit info container");
 		click(depositInfo);
 	}
 	
-	public void wrapDepositInfo() {
+	public void wrapDepositInfo() throws Exception {
 		Log.info("Deposit screen: wrap deposit info container");
 		click(depositInfo);
 	}
 	
-	public void unwrapDepositBreakdown() {
+	public void unwrapDepositBreakdown() throws Exception {
 		Log.info("Deposit screen: unwrap deposit breakdown container");
 		click(depositBreakdown);
 	}
 	
-	public void wrapDepositBreakdown() {
+	public void wrapDepositBreakdown() throws Exception {
 		Log.info("Deposit screen: wrap deposit breakdown container");
 		click(depositBreakdown);
 	}
 	
-	public void whatIfBtnClick(){
+	public void whatIfBtnClick() throws Exception{
 		waitFor(whatIfBtn);
 		Log.info("Deposit screen, deposit Tab: What if button click");
 		click(whatIfBtn);		
 	}
 	
-	public void inLetoBankOfficesClick() {
+	public void inLetoBankOfficesClick() throws Exception {
 		waitForClickable(inLetoBankOffices);
 		Log.info("Deposit tab: In leto bank offices payment click");
 		clickAndWaitSpinerToVanish(inLetoBankOffices);	
 	}
 	
-	public void anotherBankPaymentClick() {
+	public void anotherBankPaymentClick() throws Exception {
 		waitForClickable(anotherBankPayment);
 		Log.info("Deposit tab: Another bank payment click");
 		clickAndWaitSpinerToVanish(anotherBankPayment);	
 	}
 	
-	public void paymentSystemsTerminalsClick() {
+	public void paymentSystemsTerminalsClick() throws Exception {
 		waitForClickable(paymentSystemsTerminals);
 		Log.info("Deposit tab: Payments systems terminalst click");
 		clickAndWaitSpinerToVanish(paymentSystemsTerminals);	

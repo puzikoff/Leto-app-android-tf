@@ -13,7 +13,7 @@ public class EditDisplayNamePopup extends PopupBase{
 		super(driver);
 	}
 	
-	public void verifyPopup() {
+	public void verifyPopup() throws Exception {
 		Log.info("Edit template name popup: Verify");
 		verify.assertEquals(findElement(title, driver).getText(), titleText, "Popup title");		
 		verify.assertEquals(findElement(nextBtn, driver).getText(), nextBtnText, "Popup yes button");
@@ -21,7 +21,7 @@ public class EditDisplayNamePopup extends PopupBase{
 		verify.assertAll();
 	}
 	
-	public void editDisplayName(String newDisplayName) {
+	public void editDisplayName(String newDisplayName) throws Exception {
 		Log.info("Edit template name popup: Edit template name ");
 		Log.info("Edit display name block: Old name: " + findElement(displayNameField, driver).getText());
 		Log.info("Edit display name block: New name: " + newDisplayName);

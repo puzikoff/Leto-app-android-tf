@@ -18,29 +18,29 @@ public class VerificationCodeScreen extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void enterVerificationCode(String vc) {
+	public void enterVerificationCode(String vc) throws Exception {
 		Log.info("Verification code screen: enter vc");
 		findElement(codeField, driver).clear();
 		findElement(codeField, driver).sendKeys(vc);
 		delay();
 	}
 
-	public void nextBtnClick() {
+	public void nextBtnClick() throws Exception {
 		Log.info("Verification code screen: next btn click");
 		clickAndWaitSpinerToVanish(nextBtn);
 	}
 	
-	public String getComission() {
+	public String getComission() throws Exception {
 		Log.info("Payment tool screen: comission: " + findElement(comission, driver).getText());
 		return onlyNumbers(findElement(comission, driver).getText());
 	}
 	
-	public String getAmount() {
+	public String getAmount() throws Exception {
 		Log.info("Payment tool screen: amount: " + findElement(amount, driver).getText());
 		return onlyNumbers(findElement(amount, driver).getText());
 	}
 	
-	public String getPhoneNumber() {
+	public String getPhoneNumber() throws Exception {
 		Log.info("Payment tool screen: phoneNumber: " + findElement(phoneNumber, driver).getText());
 		return onlyNumbers(findElement(phoneNumber, driver).getText());
 	}

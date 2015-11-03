@@ -32,13 +32,13 @@ public class WalletScreen extends AppScreenBase{
 		return walletInfoTab;
 	}
 	
-	public void infoTabClick() {
+	public void infoTabClick() throws Exception {
 		Log.info("Wallet Screen: Information tab click");
 		findElement(infoTabBtn, driver);
 		delay();
 	}
 	
-	public void walletTabClick() {
+	public void walletTabClick() throws Exception {
 		Log.info("Wallet Screen: Wallet tab click");
 		findElement(walletTabBtn, driver);
 		delay(2000);
@@ -49,7 +49,7 @@ public class WalletScreen extends AppScreenBase{
 		waitForVanish(updateIndicator);				
 	}
 
-	public void verify() {
+	public void verify() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), title , "Wallet screen: title");
 		verify.assertAll();
 	}	

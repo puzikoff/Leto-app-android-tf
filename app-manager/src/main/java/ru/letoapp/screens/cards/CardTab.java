@@ -34,7 +34,7 @@ public class CardTab extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verify() {				
+	public void verify() throws Exception {				
 		verify.assertTrue(findElement(fundsBlock, driver).isDisplayed(), "Funds block is displayed");		
 		verify.assertEquals(findElement(blockFundsHint, driver).getText(), blockFundsHintText, "Block funds hint text");
 		verify.assertTrue(findElement(blockFundsSwitch, driver).isDisplayed(), "Block funds switch  is displayed");
@@ -44,13 +44,13 @@ public class CardTab extends AppScreenBase{
 		verify.assertAll();		
 	}
 	
-	public void expandBtnClick() {
+	public void expandBtnClick() throws Exception {
 		waitFor(expandBtn);
 		Log.info("Card screen, Card Tab: Expand button click");
 		click(expandBtn);
 	}
 	
-	public void mandatoryPaymentClick() {
+	public void mandatoryPaymentClick() throws Exception {
 		waitFor(mandatoryPayment);
 		Log.info("Card screen, Card Tab: mandatory payment click");
 		if(isMandatoryPaymentClickable()) {
@@ -74,37 +74,42 @@ public class CardTab extends AppScreenBase{
 		}
 	}
 	
-	public void holdsBtnClick() {
+	public boolean isBlockFundsSwitchDisplayed() throws Exception {
+		return isElementDisplayed(blockFundsSwitch);
+	}
+	
+	public void holdsBtnClick() throws Exception {
 		waitFor(holdsBtn);
 		Log.info("Card screen, Card Tab: Hold funds click");
 		clickAndWaitSpinerToVanish(holdsBtn);
 	}
 	
-	public void blockFundsSwitchClick() {
-		waitFor(blockFundsSwitch);
-		Log.info("Card screen, Card Tab: Block funds switch click");
-		clickAndWaitSpinerToVanish(blockFundsSwitch);
+	public void blockFundsSwitchClick() throws Exception {
+		if(isBlockFundsSwitchDisplayed()) {
+			Log.info("Card screen, Card Tab: Block funds switch click");
+			clickAndWaitSpinerToVanish(blockFundsSwitch);
+		}
 	}
 	
-	public void howWorksBlockFundsBtnClick() {
+	public void howWorksBlockFundsBtnClick() throws Exception {
 		waitFor(howWorksBlockFundsBtn);
 		Log.info("Card screen, Card Tab: How works block funds click");
 		click(howWorksBlockFundsBtn);		
 	}
 	
-	public void cardOperationsClick(){
+	public void cardOperationsClick() throws Exception{
 		waitFor(cardOperationsBtn);
 		Log.info("Card screen, Card Tab: Card operations click");
 		clickAndWaitSpinerToVanish(cardOperationsBtn);	
 	}
 	
-	public void whatIfBtnClick(){
+	public void whatIfBtnClick() throws Exception{
 		waitFor(whatIfBtn);
 		Log.info("Card screen, Card Tab: What if button click");
 		click(whatIfBtn);		
 	}
 	
-	public String getTotalAvailable() {		
+	public String getTotalAvailable() throws Exception {		
 		String ta = null;
 		waitFor(totalAvailable);		
 		ta = findElement(totalAvailable, driver).getText();
@@ -113,7 +118,7 @@ public class CardTab extends AppScreenBase{
 		return ta;
 	}
 	
-	public String getCreditFunds() {		
+	public String getCreditFunds() throws Exception {		
 		String cf = null;
 		waitFor(creditFunds);
 		cf = findElement(creditFunds, driver).getText();
@@ -122,7 +127,7 @@ public class CardTab extends AppScreenBase{
 		return cf;
 	}
 	
-	public String getOwnFunds() {		
+	public String getOwnFunds() throws Exception {		
 		String of = null;
 		waitFor(ownFunds);
 		of = findElement(ownFunds, driver).getText();
@@ -131,7 +136,7 @@ public class CardTab extends AppScreenBase{
 		return of;
 	}
 	
-	public String getBlockedFunds() {		
+	public String getBlockedFunds() throws Exception {		
 		String bf = null;
 		waitFor(blockedFunds);
 		bf = findElement(blockedFunds, driver).getText();
@@ -140,19 +145,19 @@ public class CardTab extends AppScreenBase{
 		return bf;
 	}
 	
-	public void inLetoBankOfficesClick() {
+	public void inLetoBankOfficesClick() throws Exception {
 		waitForClickable(inLetoBankOffices);
 		Log.info("Card card tab: In leto bank offices payment click");
 		clickAndWaitSpinerToVanish(inLetoBankOffices);	
 	}
 	
-	public void anotherBankPaymentClick() {
+	public void anotherBankPaymentClick() throws Exception {
 		waitForClickable(anotherBankPayment);
 		Log.info("Card card tab: Another bank payment click");
 		clickAndWaitSpinerToVanish(anotherBankPayment);	
 	}
 	
-	public void paymentSystemsTerminalsClick() {
+	public void paymentSystemsTerminalsClick() throws Exception {
 		waitForClickable(paymentSystemsTerminals);
 		Log.info("Card card tab: Payments systems terminalst click");
 		clickAndWaitSpinerToVanish(paymentSystemsTerminals);	

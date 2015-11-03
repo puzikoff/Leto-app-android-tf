@@ -57,23 +57,23 @@ public class CardScreen extends AppScreenBase{
 		return notImplementedPopup;
 	}
 	
-	public void verify() {		
+	public void verify() throws Exception {		
 		verify.assertEquals(getTitleFromActionBar(), titleText , "Card screen: title");
 		verify.assertTrue(findElement(contractNameBlock, driver).isDisplayed(), "Edit contract name block displayed");
 		verify.assertAll();		
 	}		
 	
-	public void infoTabClick() {
+	public void infoTabClick() throws Exception {
 		Log.info("Card Screen: Information tab click");
 		click(infoTabBtn);
 	}
 
-	public void managementTabClick() {
+	public void managementTabClick() throws Exception {
 		Log.info("Card Screen: Managementd tab click");
 		click(managementTabBtn);		
 	}
 	
-	public void cardTabClick() {
+	public void cardTabClick() throws Exception {
 		Log.info("Card Screen: Card tab click");
 		click(cardTabBtn);
 	}

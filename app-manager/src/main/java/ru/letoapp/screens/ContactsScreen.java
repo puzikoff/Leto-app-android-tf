@@ -38,27 +38,27 @@ public class ContactsScreen extends AppScreenBase{
 		return phoneCallPopup;
 	}
 	
-	public void stillToRepayTheLoanClick () {		
+	public void stillToRepayTheLoanClick () throws Exception {		
 		Log.info("Contacts screen: Where still to repay the loan");
 		click(stillToRepayTheLoan);
 	}
 	
-	public void phoneCallClick () {		
+	public void phoneCallClick () throws Exception {		
 		Log.info("Contacts screen: Phone call click");
 		click(phoneCallBtn);
 	}
 	
-	public void foreignPhoneCallClick () {		
+	public void foreignPhoneCallClick () throws Exception {		
 		Log.info("Contacts screen: Foreign Phone call click");
 		click(foreignPhoneCallBtn);
 	}
 	
-	public void writeToBankClick () {		
+	public void writeToBankClick () throws Exception {		
 		Log.info("Contacts screen: Write to bank click");
 		click(writeToBank);
 	}
 	
-	public void bankSiteClick () {		
+	public void bankSiteClick () throws Exception {		
 		Log.info("Contacts screen: Write to bank click");
 		click(bankSite);
 	}

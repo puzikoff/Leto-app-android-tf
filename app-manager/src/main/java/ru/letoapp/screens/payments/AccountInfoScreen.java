@@ -18,26 +18,26 @@ public class AccountInfoScreen extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void enterAccount(String account) {
+	public void enterAccount(String account) throws Exception {
 		Log.info("Account info screen: Entering account - " + account);
 		findElement(accountField, driver).clear();
 		findElement(accountField, driver).sendKeys(account);
 	}
 	
-	public boolean isAlertDisplayed() {
+	public boolean isAlertDisplayed() throws Exception {
 		return isElementPresent(alert);
 	}
 	
-	public boolean isNextBtnDisplayed() {
+	public boolean isNextBtnDisplayed() throws Exception {
 		return isElementPresent(nextBtn);
 	}
 	
-	public void nextBtnClick(){
+	public void nextBtnClick() throws Exception{
 		Log.info("Account info screen: next button click - ");
 		clickAndWaitSpinerToVanish(nextBtn);		
 	}
 
-	public void verify() {
+	public void verify() throws Exception {
 		verify.assertTrue(findElement(accountField, driver) != null, "Account info screen: account field");
 		verify.assertEquals(getTitleFromActionBar(), PropertyReader.getProperty("payment"), "Account info screen: title");
 		verify.assertAll();

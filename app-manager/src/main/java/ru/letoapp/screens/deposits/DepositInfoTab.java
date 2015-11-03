@@ -37,7 +37,7 @@ public class DepositInfoTab extends AppScreenBase{
 		super(driver);
 	}
 
-	public void verifyOpenDeposit() {
+	public void verifyOpenDeposit() throws Exception {
 		verify.assertTrue(findElement(openingTitle, driver).isDisplayed(), "Deposit info tab: opening title");
 		verify.assertTrue(findElement(signingDateBlock, driver).isDisplayed(), "Deposit info tab: signing date");
 		verify.assertTrue(findElement(openedDateBlock, driver).isDisplayed(), "Deposit info tab: opened date");
@@ -60,7 +60,7 @@ public class DepositInfoTab extends AppScreenBase{
 		verify.assertAll();
 	}
 	
-	public void verifyClosedDeposit() {
+	public void verifyClosedDeposit() throws Exception {
 		verify.assertTrue(findElement(openingTitle, driver).isDisplayed(), "Deposit info tab: opening title");
 		verify.assertTrue(findElement(signingDateBlock, driver).isDisplayed(), "Deposit info tab: signing date");
 		verify.assertTrue(findElement(openedDateBlock, driver).isDisplayed(), "Deposit info tab: opened date");
@@ -81,7 +81,7 @@ public class DepositInfoTab extends AppScreenBase{
 		verify.assertAll();
 	}
 	
-	public void verifyCanceledDeposit() {
+	public void verifyCanceledDeposit() throws Exception {
 		verify.assertTrue(findElement(openingTitle, driver).isDisplayed(), "Deposit info tab: opening title");
 		verify.assertTrue(findElement(signingDateBlock, driver).isDisplayed(), "Deposit info tab: signing date");		
 		verify.assertTrue(findElement(conditionsTitle, driver).isDisplayed(), "Deposit info tab: conditions title");
@@ -98,7 +98,7 @@ public class DepositInfoTab extends AppScreenBase{
 		verify.assertAll();
 	}
 	
-	public void depositOperationsClick() {
+	public void depositOperationsClick() throws Exception {
 		waitFor(depositOperationsBtn);
 		Log.info("Deposit screen, info tab: Card operations button click");
 		clickAndWaitSpinerToVanish(depositOperationsBtn);	

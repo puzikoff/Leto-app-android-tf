@@ -21,48 +21,48 @@ public class AmountScreen extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verify() {
+	public void verify() throws Exception {
 		verify.assertEquals(getTitleFromActionBar(), PropertyReader.getProperty("payment"), "Amount screen: title");
 		verify.assertTrue(findElement(phoneNumberBlock, driver) != null, "Amount screen: phone number block");
 		verify.assertAll();
 	}
 	
-	public boolean isAlertDisplayed() {
+	public boolean isAlertDisplayed() throws Exception {
 		return isElementPresent(alert);
 	}
 	
-	public void tenRubBtnClick() {
+	public void tenRubBtnClick() throws Exception {
 		Log.info("Amount screen: Ten rub buttob click");
 		findElement(tenRubBtn, driver).click();
 	}
 	
-	public void hundredRubBtnClick() {
+	public void hundredRubBtnClick() throws Exception {
 		Log.info("Amount screen: Hundred rub buttob click");
 		findElement(hundredRubBtn, driver).click();
 	}
 	
-	public void thousandRubBtnClick() {
+	public void thousandRubBtnClick() throws Exception {
 		Log.info("Amount screen: thousand rub buttob click");
 		findElement(thousandRubBtn, driver).click();
 	}
 	
-	public void enterAmount(String amount) {
+	public void enterAmount(String amount) throws Exception {
 		Log.info("Amount screen: Enter amount");
 		findElement(amountField, driver).clear();
 		findElement(amountField, driver).sendKeys(amount);
 	}
 	
-	public void nextBtnClick(){
+	public void nextBtnClick() throws Exception{
 		Log.info("Amount screen: next button click");
 		clickAndWaitSpinerToVanish(nextBtn);		
 	}
 
-	public String getAmount() {
+	public String getAmount() throws Exception {
 		Log.info("Amount screen: Amount: " + findElement(amountField, driver).getText());
 		return onlyNumbers(findElement(amountField, driver).getText());		
 	}
 	
-	public String getPhoneNumber() {
+	public String getPhoneNumber() throws Exception {
 		Log.info("Amount screen: Phone number: " + findElement(phoneNumber, driver).getText());
 		return onlyNumbers(findElement(phoneNumber, driver).getText());		
 	}

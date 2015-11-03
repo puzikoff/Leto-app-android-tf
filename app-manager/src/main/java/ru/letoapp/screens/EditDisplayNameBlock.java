@@ -23,24 +23,24 @@ public class EditDisplayNameBlock extends ScreenBase{
 		super(driver);
 	}
 
-	public void editDisplayNameBtnClick() {		
+	public void editDisplayNameBtnClick() throws Exception {		
 		Log.info("Edit display name block: Click edit button");
 		click(editNameBtn);
 	}
 	
-	public String getDisplayName() {
+	public String getDisplayName() throws Exception {
 		Log.info("Edit display name block: Get display name");
 		Log.info("Edit display name block: Display name: " + findElement(displayName, driver).getText());
 		return findElement(displayName, driver).getText();
 	}
 	
-	public String getDisplayNameFromEditPopup(){
+	public String getDisplayNameFromEditPopup() throws Exception{
 		Log.info("Edit display name block: Get display name fron edit popup");
 		Log.info("Edit display name block: Display name fron edit popup: " + findElement(displayNameField, driver).getText());
 		return findElement(displayNameField, driver).getText();
 	}
 	
-	public String getLabelContractState() {
+	public String getLabelContractState() throws Exception {
 		List<WebElement> labelContractStates = driver.findElements(labelContractState);
 		if(!labelContractStates.isEmpty()) {
 			Log.info("Edit display name block: Get label contract state");
@@ -51,7 +51,7 @@ public class EditDisplayNameBlock extends ScreenBase{
 		return "No label contract state";
 	}
 	
-	public void editDisplayName(String newDisplayName) {
+	public void editDisplayName(String newDisplayName) throws Exception {
 		Log.info("Edit display name block: Edit display name");
 		Log.info("Edit display name block: Old name: " + findElement(displayNameField, driver).getText());
 		Log.info("Edit display name block: New name: " + newDisplayName);
@@ -59,12 +59,12 @@ public class EditDisplayNameBlock extends ScreenBase{
 		findElement(displayNameField, driver).sendKeys(newDisplayName);	
 	}
 	
-	public void editDisplayNamePopupNextBtnClick() {
+	public void editDisplayNamePopupNextBtnClick() throws Exception {
 		Log.info("Edit display name block: Click next");
 		clickAndWaitSpinerToVanish(editDisplayNamePopupNextBtn);
 	}
 	
-	public void editDisplayNamePopupCancelBtnClick() {
+	public void editDisplayNamePopupCancelBtnClick() throws Exception {
 		Log.info("Edit display name block: Click cancel");
 		click(editDisplayNamePopupCancelBtn);
 	}

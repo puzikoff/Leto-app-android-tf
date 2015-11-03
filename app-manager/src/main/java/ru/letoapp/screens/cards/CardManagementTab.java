@@ -24,7 +24,7 @@ public class CardManagementTab extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void verify() {
+	public void verify() throws Exception {
 		Log.info("Card screen, Management Tab: verify");
 		verify.assertTrue(findElement(phoneCallBtn, driver).isDisplayed(), "Phone call button displayed");
 		verify.assertTrue(findElement(foreignPhoneCallBtn, driver).isDisplayed(), "Foreign phone call is displayed");
@@ -35,32 +35,38 @@ public class CardManagementTab extends AppScreenBase{
 		verify.assertAll();				
 	}
 	
-	public void blockFundsSwitchClick() {		
-		Log.info("Card screen, Management Tab: Block funds switch click");
-		clickAndWaitSpinerToVanish(blockFundsSwitch);	
+	public void blockFundsSwitchClick() throws Exception {
+		if(isBlockFundsSwitchDisplayed()) {
+			Log.info("Card screen, Management Tab: Block funds switch click");
+			clickAndWaitSpinerToVanish(blockFundsSwitch);
+		}
 	}
 	
-	public void connectingServiceHistoryBtnClick() {		
+	public boolean isBlockFundsSwitchDisplayed() throws Exception {
+		return isElementDisplayed(blockFundsSwitch);
+	}
+	
+	public void connectingServiceHistoryBtnClick() throws Exception {		
 		Log.info("Card screen, Management Tab: Connecting services history button click");
 		clickAndWaitSpinerToVanish(connectingServiceHistoryBtn);	
 	}
 	
-	public void howWorksBlockFundsBtnClick() {		
+	public void howWorksBlockFundsBtnClick() throws Exception {		
 		Log.info("Card screen, management Tab: How works block funds click");		
 		click(howWorksBlockFundsBtn);		
 	}
 	
-	public void changePayDateWidgetArrowClick() {
+	public void changePayDateWidgetArrowClick() throws Exception {
 		Log.info("Card screen, management tab: change payment date widget arrow click");
 		click(changePayDateWidgetArrow);
 	}
 	
-	public void repaymentWidgetArrowClick() {
+	public void repaymentWidgetArrowClick() throws Exception {
 		Log.info("Card screen, management tab: repayment widget arrow click");
 		click(repaymentWidgetArrow);
 	}
 	
-	public boolean isChangePaymentBtnDisplayed() {		
+	public boolean isChangePaymentBtnDisplayed() throws Exception {		
 		if(findElement(changePaymentDateBtn, driver).isDisplayed()) {
 			Log.info("Card screen, management tab: Change payment date is displayed");	
 			return true;
@@ -71,12 +77,12 @@ public class CardManagementTab extends AppScreenBase{
 		}
 	}
 	
-	public void changePaymentDateBtnClick() {
+	public void changePaymentDateBtnClick() throws Exception {
 		Log.info("Card screen, management tab: change payment date btn click");
 		clickAndWaitSpinerToVanish(changePaymentDateBtn);
 	}
 	
-	public void repaymentBtnClick() {
+	public void repaymentBtnClick() throws Exception {
 		Log.info("Card screen, management tab: repayment btn click");
 		click(repaymentBtn);						
 	}

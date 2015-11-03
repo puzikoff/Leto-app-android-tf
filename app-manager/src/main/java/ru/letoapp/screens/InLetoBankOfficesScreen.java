@@ -23,12 +23,12 @@ public class InLetoBankOfficesScreen extends AppScreenBase{
 		super(driver);
 	}
 	
-	public void getQRBtnClick() {
+	public void getQRBtnClick() throws Exception {
 		Log.info("Get QR code button click");
 		click(getQRBtn);		
 	}
 
-	public void verify() {		
+	public void verify() throws Exception {		
 		verify.assertEquals(findElement(hint, driver).getText(), hintText , "Hint text");
 		verify.assertTrue(findElement(addressesOnMap, driver).isDisplayed(), "Addresses on map");
 		verify.assertTrue(findElement(getQRBtn, driver).isDisplayed(), "Get QR button");
@@ -43,7 +43,7 @@ public class InLetoBankOfficesScreen extends AppScreenBase{
 		waitForVanish(loadingIndicator);		
 	}
 		
-	public boolean isLoadingErrorExist() {		
+	public boolean isLoadingErrorExist() throws Exception {		
 		if(findElement(errorLoading, driver) != null){
 			Log.error("QR code screen: Loading ERROR");
 			takeScreenshot();

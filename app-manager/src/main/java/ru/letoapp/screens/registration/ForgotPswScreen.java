@@ -20,7 +20,7 @@ public class ForgotPswScreen extends AppScreenBase{
 		super(driver);		
 	}
 	
-	public void verifyScreen() {
+	public void verifyScreen() throws Exception {
 		Log.info("Forgot login or password screen: verify screen");
 		verify.assertEquals(getTitleFromActionBar(), actionBarTitle, "Forgot login or password screen: Action bar title");
 		verify.assertEquals(findElement(title, driver).getText(), titleText, "Forgot login or password screen: Title text");
@@ -31,7 +31,7 @@ public class ForgotPswScreen extends AppScreenBase{
 		verify.assertAll();
 	}
 
-	public void getNewCredentialsBtnClick() {
+	public void getNewCredentialsBtnClick() throws Exception {
 		waitFor(newCredentialsBtn);
 		Log.info("Forgot Psw Screen: New credentials button click");
 		findElement(newCredentialsBtn, driver).click();	
