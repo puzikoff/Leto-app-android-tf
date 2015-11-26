@@ -61,7 +61,7 @@ public class MobilePaymentScreen extends AppScreenBase{
 		clickAndWaitSpinerToVanish(nextBtn);		
 	}
 	
-	public void paymentTollBtnClick() throws Exception {
+	public void paymentToolBtnClick() throws Exception {
 		Log.info("Mobile payment screen: payment tool button click");
 		click(paymentToolBtn);		
 	}

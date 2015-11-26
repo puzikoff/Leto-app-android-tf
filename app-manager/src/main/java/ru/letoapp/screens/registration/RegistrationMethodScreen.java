@@ -26,23 +26,15 @@ public class RegistrationMethodScreen extends AppScreenBase{
 	}
 
 	public void chooseCard() throws Exception {		
-		waitFor(cardRegistrationBtn);
 		Log.info("RegistrationMethodScreen: Choose card registration");
-		findElement(cardRegistrationBtn, driver).click();
+		clickAndWaitSpinerToVanish(cardRegistrationBtn);
 		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
 	}
 	
 	public void chooseAccount() throws Exception {		
-		waitFor(accountRegistrationBtn);
 		Log.info("RegistrationMethodScreen: Choose account registration");
-		findElement(accountRegistrationBtn, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(accountRegistrationBtn);
+		delay();			
 	}
 
 }

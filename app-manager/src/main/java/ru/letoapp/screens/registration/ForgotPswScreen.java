@@ -31,8 +31,7 @@ public class ForgotPswScreen extends AppScreenBase{
 		verify.assertAll();
 	}
 
-	public void getNewCredentialsBtnClick() throws Exception {
-		waitFor(newCredentialsBtn);
+	public void getNewCredentialsBtnClick() throws Exception {		
 		Log.info("Forgot Psw Screen: New credentials button click");
 		findElement(newCredentialsBtn, driver).click();	
 		delay();

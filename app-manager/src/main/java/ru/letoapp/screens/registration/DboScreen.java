@@ -26,29 +26,20 @@ public class DboScreen extends AppScreenBase {
 	}
 
 	public void acceptLicenseTerms() throws Exception {		
-		waitFor(acceptTermsBtn);
 		Log.info("Dbo Screen: Click 'Accept terms' button");
-		findElement(acceptTermsBtn, driver).click();
-		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }		
+		clickAndWaitSpinerToVanish(acceptTermsBtn);
+		delay();				
 	}	
 	
 	public void contextMenuBtnClick() throws Exception {		
-		waitFor(contextMenuBtn);
 		Log.info("Dbo Screen: Click menu button");
 		findElement(contextMenuBtn, driver).click();
 	}
 	
 	public void sendEmailBtnClick() throws Exception {		
-		waitFor(sendEmailBtn);
 		Log.info("Dbo Screen: Click send email button");
-		findElement(sendEmailBtn, driver).click();
+		clickAndWaitSpinerToVanish(sendEmailBtn);
 		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }		
 	}
 	
 	public void scrollDownDBO(){

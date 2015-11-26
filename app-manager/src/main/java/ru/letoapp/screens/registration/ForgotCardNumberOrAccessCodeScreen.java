@@ -17,24 +17,21 @@ public class ForgotCardNumberOrAccessCodeScreen extends AppScreenBase{
 		super(driver);
 	}
 
-	public void enterCardNumber(String cardNumber) throws Exception {
-		waitFor(cardNumberField);
+	public void enterCardNumber(String cardNumber) throws Exception {		
 		Log.info("Forgot Card Number Or Access Code Screen: Entering card number");
 		findElement(cardNumberField, driver).clear();
 		findElement(cardNumberField, driver).sendKeys(cardNumber);		
 	}
 
-	public void enterAccessCode(String accessCode) throws Exception {
-		waitFor(accessCodeField);
+	public void enterAccessCode(String accessCode) throws Exception {		
 		Log.info("Forgot Card Number Or Access Code Screen: Entering access code");
 		findElement(accessCodeField, driver).clear();
 		findElement(accessCodeField, driver).sendKeys(accessCode);
 	}
 
-	public void NextBtnClick() throws Exception {
-		waitFor(nextBtn);
+	public void NextBtnClick() throws Exception {		
 		Log.info("Forgot Card Number Or Access Code Screen: Click next button");
-		findElement(nextBtn, driver).click();
+		clickAndWaitSpinerToVanish(nextBtn);
 		delay();
 	}
 

@@ -14,8 +14,8 @@ public class SmsCodeScreen extends AppScreenBase{
 	
 	By smsCodeComment = By.id("label_phone_number_comment");
 	By smsLabelEnterCode = By.id("label_enter_confirmation_code");
-	By smsCodeField = By.id("text_confirmation_code");
-	By nextBtn = By.id("button_further");
+	By smsCodeField = By.xpath("//MaskedEditText[@id='text_confirmation_code']");
+	By nextBtn = By.xpath("//Button[@id='button_further']");
 	By sendSmsAgainBtn = By.id("button_send_confirmation_code_again");	
 	By smsLabelNotRecieve = By.id("label_16_4");
 	By emptySmsCodePopupLocator = By.id("sdl__message");
@@ -54,20 +54,14 @@ public class SmsCodeScreen extends AppScreenBase{
 
 	public void sendSmsAgainBtnClick() throws Exception {		
 		Log.info("SMS Code Screen: Click 'send sms again'");
-		findElement(sendSmsAgainBtn, driver).click();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
+		clickAndWaitSpinerToVanish(sendSmsAgainBtn);			
 		delay();
 	}
 
 	public void nextBtnClick() throws Exception {					
 		Log.info("SMS Code Screen: Click 'Next'");
-		findElement(nextBtn, driver).click();
+		clickAndWaitSpinerToVanish(nextBtn);
 		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
 	}
 
 	public void enterSmsCode(String smsCode) throws Exception {		

@@ -7,64 +7,24 @@ import ru.letoapp.AppScreenBase;
 import ru.letoapp.utilities.PropertyReader;
 
 
-public class PaymentToolScreen extends AppScreenBase{
-	By nextBtn = By.xpath("//Button[@id='button']");
-	By comission = By.xpath("//TextView[@value='КОМИССИЯ']/following-sibling::LinearLayout/EditText");
-	By amount = By.xpath("//TextView[@value='СУММА']/following-sibling::LinearLayout/EditText");
-	By phoneNumber = By.xpath("//TextView[@value='НОМЕР ТЕЛЕФОНА']/following-sibling::LinearLayout/WeakMaskedEditText");
-	By comissionBlock = By.xpath("//TextView[@value='КОМИССИЯ']");
-	By amountBlock = By.xpath("//TextView[@value='СУММА']");
-	By phoneNumberBlock = By.xpath("//TextView[@value='НОМЕР ТЕЛЕФОНА']");
-	By subtitle = By.xpath("//TextView[@value='ОПЛАТИТЬ С']");
-	String subtitleText = "ОПЛАТИТЬ С";
+public class PaymentToolChoiceScreen extends AppScreenBase{
 	
-	
-	public void verify () throws Exception {
-		verify.assertEquals(findElement(subtitle, driver).getText(), subtitleText, "Payment tool screen: subtitle");
-		//verify.assertFalse(isPaymentToolDetailsEmpty(PropertyReader.getProperty("cardName")), "Payment tool screen: Card deteails is empty");
-		verify.assertTrue(findElement(comissionBlock, driver) != null, "Payment tool screen: comission block");
-		verify.assertTrue(findElement(amountBlock, driver) != null, "Payment tool screen: amount block");
-		verify.assertTrue(findElement(phoneNumberBlock, driver) != null, "Payment tool screen: phone number block");
-		verify.assertAll();
-	}
-	
-	public boolean isPaymentToolDetailsEmpty (String paymentToolName) throws Exception {
-		if(findElement(By.xpath("//TextView[@value='" + paymentToolName + "']/../following-sibling::TextView"), driver).getText() != "") {
-			return false;
-		}
-		else {
-			Log.info("Payment tool screen: payment tool " + paymentToolName + " details is empty");
-			takeScreenshot();
-			return true;
-		}			
-	}
-	
-	public PaymentToolScreen(WebDriver driver) {
+	String titleText = "Оплатить с ......";
+	By title = By.xpath("//TextView[@id='sdl__title']");
+	By cancelBtn = By.xpath("//Button[@id='sdl__positive_button']");
+		
+	public PaymentToolChoiceScreen(WebDriver driver) {
 		super(driver);
 	}
 	
-	public void choosePaymentTool(String paymentTool) throws Exception {
-		Log.info("Payment tool screen: Choose payment tool - " + paymentTool);
-		clickAndWaitSpinerToVanish(By.xpath("//TextView[@value='" + paymentTool + "']/following-sibling::TextView/following-sibling::RadioButton"));				
-	}
-
-	public void nextBtnClick() throws Exception{
-		Log.info("Amount screen: next button click");
-		clickAndWaitSpinerToVanish(nextBtn);
+	public void verify() throws Exception {
+		verify.assertEquals(findElement(title, driver).getText(), titleText, "Payment tool choice screen: Title");
+		verify.assertAll();
 	}
 	
-	public String getComission() throws Exception {
-		Log.info("Payment tool screen: comission: " + findElement(comission, driver).getText());
-		return onlyNumbers(findElement(comission, driver).getText());
+	public void cancelBtnClick() throws Exception {
+		Log.info("Payment tool choice screen: cancel button click");
+		click(cancelBtn);
 	}
 	
-	public String getAmount() throws Exception {
-		Log.info("Payment tool screen: amount: " + findElement(amount, driver).getText());
-		return onlyNumbers(findElement(amount, driver).getText());
-	}
-	
-	public String getPhoneNumber() throws Exception {
-		Log.info("Payment tool screen: phoneNumber: " + findElement(phoneNumber, driver).getText());
-		return onlyNumbers(findElement(phoneNumber, driver).getText());
-	}
 }

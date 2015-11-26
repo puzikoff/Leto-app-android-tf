@@ -19,44 +19,36 @@ public class SetPasswordScreen extends AppScreenBase{
 		super(driver);
 	}	
 
-	public void enterPassword(String password) throws Exception {
-		waitFor(passwordField);
+	public void enterPassword(String password) throws Exception {		
 		Log.info("Set Password Screen: Entering password: " + password);
 		findElement(passwordField, driver).clear();
 		findElement(passwordField, driver).sendKeys(password);
 	}
 
-	public void isWeakPasswordErrorDisplayed() throws Exception {
-		waitFor(weakPasswordError);
+	public void isWeakPasswordErrorDisplayed() throws Exception {		
 		if(findElement(weakPasswordError, driver).isDisplayed())
 			Log.info("Set Password Screen: Error: " + findElement(weakPasswordError, driver).getText());
 		else
 			Log.error("Set Password Screen: No weak password error");
 	}
 
-	public void confirmPassword(String confirmPassword) throws Exception {
-		waitFor(confirmPasswordField);
+	public void confirmPassword(String confirmPassword) throws Exception {		
 		Log.info("Set Password Screen: Confirm password: " + confirmPassword);
 		findElement(confirmPasswordField, driver).clear();
 		findElement(confirmPasswordField, driver).sendKeys(confirmPassword);
 	}
 
-	public void isWrongConfirmPasswordErrorDisplayed() throws Exception {
-		waitFor(wrongConfirmPasswordError);
+	public void isWrongConfirmPasswordErrorDisplayed() throws Exception {		
 		if(findElement(wrongConfirmPasswordError, driver).isDisplayed())
 			Log.info("Set Password Screen: Error: " + findElement(wrongConfirmPasswordError, driver).getText());
 		else
 			Log.error("Set Password Screen: No wrong confirm password error");
 	}
 
-	public void nextBtnClick() throws Exception {
-		waitFor(nextBtn);
+	public void nextBtnClick() throws Exception {		
 		Log.info("Set Password Screen: Click next button");
-		findElement(nextBtn, driver).click();
+		clickAndWaitSpinerToVanish(nextBtn);
 		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
 	}
 
 }

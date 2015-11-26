@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>ru.letoapp</groupId>
-    <artifactId>tf-components</artifactId>
+    <artifactId>Leto-app-android-tf</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>app-manager</artifactId>

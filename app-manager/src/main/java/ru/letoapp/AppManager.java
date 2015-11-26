@@ -42,15 +42,18 @@ import ru.letoapp.screens.cards.CreditDetailsScreen;
 import ru.letoapp.screens.cards.HowToUseCardScreen;
 import ru.letoapp.screens.cards.HowWorksBlockFundsScreen;
 import ru.letoapp.screens.deposits.DepositScreen;
+import ru.letoapp.screens.limits.LimitsScreen;
+import ru.letoapp.screens.limits.SpecificLimitScreen;
 import ru.letoapp.screens.loans.LoanContractScreen;
 import ru.letoapp.screens.loans.LoanInsuranceScreen;
 import ru.letoapp.screens.loans.LoanScreen;
 import ru.letoapp.screens.loans.PaymentsScheduleScreen;
-import ru.letoapp.screens.payments.AccountInfoScreen;
-import ru.letoapp.screens.payments.AmountScreen;
-import ru.letoapp.screens.payments.PaymentToolScreen;
+import ru.letoapp.screens.payments.MobilePaymentScreen;
+import ru.letoapp.screens.payments.PaymentToolChoiceScreen;
 import ru.letoapp.screens.payments.PaymentsAndTransfersScreen;
 import ru.letoapp.screens.payments.StatusScreen;
+import ru.letoapp.screens.payments.TransferScreen;
+import ru.letoapp.screens.payments.TransferScreen;
 import ru.letoapp.screens.registration.AccountCredentialsScreen;
 import ru.letoapp.screens.registration.CardCredentialsScreen;
 import ru.letoapp.screens.registration.DboScreen;
@@ -114,10 +117,8 @@ public class AppManager {
 	private ReducePaymentScreen reducePaymentScreen;
 	private VerificationCodeScreen verificationCodeScreen;
 	private WalletScreen walletScreen;
-	private PaymentsAndTransfersScreen paymentsAndTransfersScreen;
-	private AccountInfoScreen accountInfoScreen;
-	private AmountScreen amountScreen;
-	private PaymentToolScreen paymentToolScreen;	
+	private PaymentsAndTransfersScreen paymentsAndTransfersScreen;	
+	private PaymentToolChoiceScreen paymentToolScreen;	
 	private StatusScreen statusScreen;
 	private HowToUseCardScreen howToUseCardScreen; 
 	private HowWorksBlockFundsScreen howWorksBlockFundsScreen;
@@ -131,6 +132,10 @@ public class AppManager {
 	private TurnOffInsuranceScreen turnOffInsuranceScreen;
 	private WithdrawMoneyInATMScreen withdrawMoneyInATMScreen;
 	private DepositsListScreen depositsListScreen;
+	private LimitsScreen limitsScreen;
+	private SpecificLimitScreen specificLimitScreen;
+	private MobilePaymentScreen mobilePaymentScreen;
+	private TransferScreen transferScreen;
 		
 	public void init() {		
 		authScreen = new AuthScreen(driver);
@@ -168,10 +173,8 @@ public class AppManager {
 		reducePaymentScreen = new ReducePaymentScreen(driver);
 		verificationCodeScreen = new VerificationCodeScreen(driver);
 		walletScreen = new WalletScreen(driver);
-		paymentsAndTransfersScreen = new PaymentsAndTransfersScreen(driver);
-		accountInfoScreen = new AccountInfoScreen(driver);
-		amountScreen = new AmountScreen(driver);
-		paymentToolScreen = new PaymentToolScreen(driver);		
+		paymentsAndTransfersScreen = new PaymentsAndTransfersScreen(driver);	
+		paymentToolScreen = new PaymentToolChoiceScreen(driver);		
 		statusScreen= new StatusScreen(driver);
 		howToUseCardScreen = new HowToUseCardScreen(driver); 
 		howWorksBlockFundsScreen = new HowWorksBlockFundsScreen(driver);
@@ -185,6 +188,11 @@ public class AppManager {
 		turnOffInsuranceScreen = new TurnOffInsuranceScreen(driver);
 		withdrawMoneyInATMScreen = new WithdrawMoneyInATMScreen(driver);
 		depositsListScreen = new DepositsListScreen(driver);
+		limitsScreen = new LimitsScreen(driver);
+		specificLimitScreen = new SpecificLimitScreen(driver);
+		mobilePaymentScreen = new MobilePaymentScreen(driver);
+		transferScreen = new TransferScreen(driver);
+		
 	}
 	
 	/* get Screens methods section */
@@ -333,19 +341,11 @@ public class AppManager {
 		return paymentsAndTransfersScreen;
 	}
 	
-	public AccountInfoScreen getAccountInfoScreen(){
-		return accountInfoScreen;
-	}
-	
-	public PaymentToolScreen getPaymentToolScreen(){
+	public PaymentToolChoiceScreen getPaymentToolChoiceScreen(){
 		return paymentToolScreen;
 	}
 	public StatusScreen getStatusScreen(){
 		return statusScreen;
-	}
-	
-	public AmountScreen getAmountScreen(){
-		return amountScreen;
 	}
 	
 	public HowWorksBlockFundsScreen getHowWorksBlockFundsScreen() {
@@ -396,6 +396,22 @@ public class AppManager {
 		return depositsListScreen;
 	}
 	
+	public LimitsScreen getLimitsScreen() {
+		return limitsScreen;
+	}
+	
+	public SpecificLimitScreen getSpecificLimitScreen() {
+		return specificLimitScreen;
+	}
+	
+	public MobilePaymentScreen getMobilePaymentScreen() {
+		return mobilePaymentScreen;
+	}
+	
+	public TransferScreen getTransferScreen() {
+		return transferScreen;
+	}
+	
 	/* Starting Selendroid */
 	
 	public void startServer(String appPath, boolean forceReinstall, boolean noClearData) 
@@ -411,7 +427,7 @@ public class AppManager {
 	    serverConfig.setNoClearData(noClearData);
 	    serverConfig.setShouldKeepAdbAlive(true);
 	    serverConfig.setPrintHelp(true);
-	    serverConfig.setLogLevel(LogLevelEnum.INFO);
+	    serverConfig.setLogLevel(LogLevelEnum.WARNING);
 	    server = new SelendroidLauncher(serverConfig);
 	    server.launchSelendroid();	            
 	}

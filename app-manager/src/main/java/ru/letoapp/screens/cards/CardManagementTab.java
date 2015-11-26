@@ -18,6 +18,7 @@ public class CardManagementTab extends AppScreenBase{
 	By changePaymentDateBtn = By.xpath("//TextView[@value='Меняю дату платежа']/../../..//TextView[@id='label_pressable_caption']");
 	By repaymentBtn = By.xpath("//TextView[@value='Автопогашение']/../../..//TextView[@id='label_pressable_caption']");
 	By blockFundsHint = By.xpath("//LinearLayout[@id='layout_spending_switch_container']//TextView[2]"); 
+	By limitsBtn = By.xpath("//LinearLayout[@id='layout_action_bank_payment']");
 	String blockFundsHintText = "Временно отключает возможность снятия денег с карты";
 
 	public CardManagementTab(WebDriver driver) {
@@ -85,6 +86,11 @@ public class CardManagementTab extends AppScreenBase{
 	public void repaymentBtnClick() throws Exception {
 		Log.info("Card screen, management tab: repayment btn click");
 		click(repaymentBtn);						
+	}
+	
+	public void limitsBtnClick() throws Exception {
+		Log.info("Card screen, management tab: limits btn click");
+		click(limitsBtn);
 	}
 
 }

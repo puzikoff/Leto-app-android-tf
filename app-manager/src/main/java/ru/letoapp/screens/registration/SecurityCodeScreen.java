@@ -22,28 +22,22 @@ public class SecurityCodeScreen extends AppScreenBase{
 	public void verifyScreen() {		
 	}
 	
-	public void clickNumber(String number) throws Exception {
-		waitFor("//RelativeLayout/FrameLayout");
+	public void clickNumber(String number) throws Exception {		
 		Log.info("Security Code Screen: Click number: " + number);
 		findElement(By.xpath("//Button[@id='button_keyboard_" + number + "']"), driver).click();	
 		delay();
 	}
 	
-	public void remindSecurityCodeBtnClick() throws Exception{
-		waitFor(remindSecurityCodeBtn);
+	public void remindSecurityCodeBtnClick() throws Exception{		
 		Log.info("Security Code Screen:  remind security code click");
 		findElement(remindSecurityCodeBtn, driver).click();
 		delay();
 	}
 	
-	public void dismissBtnClick() throws Exception{
-		waitFor(disMissBtn);
+	public void dismissBtnClick() throws Exception{		
 		Log.info("Security Code Screen:  Dismiss button click");
-		findElement(disMissBtn, driver).click();
+		clickAndWaitSpinerToVanish(disMissBtn);
 		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
 	}
 
 }

@@ -15,21 +15,16 @@ public class SetLoginScreen extends AppScreenBase {
 		super(driver);
 	}
 
-	public void enterLogin(String login) throws Exception {
-		waitFor(loginField);
+	public void enterLogin(String login) throws Exception {		
 		Log.info("Set Login Screen: Entering login: " + login);
 		findElement(loginField, driver).clear();
 		findElement(loginField, driver).sendKeys(login);
 	}
 
-	public void nextBtnClick() throws Exception {
-		waitFor(nextBtn);
+	public void nextBtnClick() throws Exception {		
 		Log.info("Set Login Screen: Click next button");
-		findElement(nextBtn, driver).click();
+		clickAndWaitSpinerToVanish(nextBtn);
 		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
 	}
 
 }

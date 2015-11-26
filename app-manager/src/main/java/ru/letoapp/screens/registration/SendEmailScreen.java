@@ -37,14 +37,10 @@ public class SendEmailScreen extends AppScreenBase{
 		return false;
 	}
 
-	public void sendBtnClick() throws Exception {		
-		waitFor(sendBtn);		
+	public void sendBtnClick() throws Exception {			
 		Log.info("Send Email Screen: Click send button");
-		findElement(sendBtn, driver).click();
+		clickAndWaitSpinerToVanish(sendBtn);
 		delay();
-		if(isWaitPopupDisplayed()) {
-        	waitForVanishWaitPopup();
-        }	
 	}
 	
 
