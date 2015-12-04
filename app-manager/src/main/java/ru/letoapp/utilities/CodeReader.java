@@ -16,33 +16,39 @@ public class CodeReader {
 		String otp = null;
 		String otp2 = null;
 		String filePath = "";
-		if(env.equals("sb")) {
-			if(codeType.equals("sms")) {			
-				filePath = "\\\\VM-LETO-SB\\LOGS\\AM\\message_log.txt";
+		if(PropertyReader.getProperty("smsFromFile").equals("true")) {
+			if(env.equals("sb")) {
+				if(codeType.equals("sms")) {			
+					filePath = "\\\\VM-LETO-SB\\LOGS\\AM\\message_log.txt";
 				
-			}
-			if(codeType.equals("vk")) {			
+				}
+				if(codeType.equals("vk")) {			
 				filePath = "\\\\VM-LETO-SB\\LOGS\\AM\\message_log.txt";
+				}
 			}
+			if(env.equals("mtest")) {
+				if(codeType.equals("sms")) {			
+					filePath = "\\\\VM-LETO-MTEST\\c$\\LOGS\\AM\\message_log.txt";
+				}
+				if(codeType.equals("vk")) {			
+					filePath = "\\\\VM-LETO-MTEST\\c$\\LOGS\\AM\\message_log.txt";
+				}
+			}
+			File file = new File(filePath);
+			BufferedReader br = new BufferedReader (new InputStreamReader(new FileInputStream( file ), "UTF-8"));
+			while((otp = br.readLine()) != null) {	    	
+				otp2 = otp;	    
+			}	    
+			br.close();		    
+			Pattern p = Pattern.compile("[0-9]{4,4}");
+			Matcher m = p.matcher(otp2);	    
+			m.find();	   
+			otp2 = m.group(0);
 		}
-		if(env.equals("mtest")) {
-			if(codeType.equals("sms")) {			
-				filePath = "\\\\VM-LETO-MTEST\\c$\\LOGS\\AM\\message_log.txt";
-			}
-			if(codeType.equals("vk")) {			
-				filePath = "\\\\VM-LETO-MTEST\\c$\\LOGS\\AM\\message_log.txt";
-			}
+		if(PropertyReader.getProperty("smsFromFile").equals("false")) {
+			otp2 = PropertyReader.getProperty("SmsCode");			
 		}
-		File file = new File(filePath);
-	    BufferedReader br = new BufferedReader (new InputStreamReader(new FileInputStream( file ), "UTF-8"));
-	    while((otp = br.readLine()) != null) {	    	
-	    	otp2 = otp;	    
-	    }	    
-	    br.close();		    
-	    Pattern p = Pattern.compile("[0-9]{4,4}");
-	    Matcher m = p.matcher(otp2);	    
-	    m.find();	   
-	    otp2 = m.group(0);     
+		Log.info(otp2);
 		return otp2;
 	}
 }
