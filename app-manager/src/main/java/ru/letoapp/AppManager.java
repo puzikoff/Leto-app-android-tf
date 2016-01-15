@@ -439,7 +439,7 @@ public class AppManager {
 	    capabilities.setLaunchActivity(appActivity);   
 	    if(emulator == true) {
 	    	capabilities.setEmulator(true);
-	    	capabilities.setPlatformVersion(DeviceTargetPlatform.ANDROID19);
+	    	capabilities.setPlatformVersion(DeviceTargetPlatform.ANDROID10);
 	    }
 	    driver = new SelendroidDriver(new URL(serverUrl), capabilities);
 	    waitDriver = new WebDriverWait(driver, 90);	 
@@ -451,6 +451,7 @@ public class AppManager {
 	    capabilities.setAut(appUnderTestId);
 	    if(emulator == true) {
 	    	capabilities.setEmulator(true);
+	    	//capabilities.setPlatformVersion(DeviceTargetPlatform.ANDROID10);
 	    	capabilities.setPlatformVersion(DeviceTargetPlatform.ANDROID19);
 	    }
 	    driver = new SelendroidDriver(new URL(serverUrl), capabilities); 
