@@ -28,6 +28,16 @@ public class SecurityCodeScreen extends AppScreenBase{
 		delay();
 	}
 	
+
+	public void enterSecurityCode(String code) throws Exception {		
+		Log.info("Security Code Screen: Enter code: " + code);
+		char[] codeArray = code.toCharArray();
+		for(int i = 0; i < 4; ++i) {
+			findElement(By.xpath("//Button[@id='button_keyboard_" + String.valueOf(codeArray[i]) + "']"), driver).click();	
+			delay();
+		}
+	}
+	
 	public void remindSecurityCodeBtnClick() throws Exception{		
 		Log.info("Security Code Screen:  remind security code click");
 		findElement(remindSecurityCodeBtn, driver).click();

@@ -53,7 +53,6 @@ import ru.letoapp.screens.payments.PaymentToolChoiceScreen;
 import ru.letoapp.screens.payments.PaymentsAndTransfersScreen;
 import ru.letoapp.screens.payments.StatusScreen;
 import ru.letoapp.screens.payments.TransferScreen;
-import ru.letoapp.screens.payments.TransferScreen;
 import ru.letoapp.screens.registration.AccountCredentialsScreen;
 import ru.letoapp.screens.registration.CardCredentialsScreen;
 import ru.letoapp.screens.registration.DboScreen;
@@ -414,13 +413,13 @@ public class AppManager {
 	
 	/* Starting Selendroid */
 	
-	public void startServer(String appPath, boolean forceReinstall, boolean noClearData) 
+	public void startServer(String appPath, boolean forceReinstall, boolean noClearData, boolean deviceLog) 
 	{
 		serverConfig = new SelendroidConfiguration();
 	    serverConfig.addSupportedApp(appPath);
 	    serverConfig.setPort(4444);	    
 	    serverConfig.setEmulatorPort(5554);	    
-	    serverConfig.setDeviceLog(true);
+	    serverConfig.setDeviceLog(deviceLog);
 	    serverConfig.setDeviceScreenshot(true);
 	    serverConfig.setSelendroidServerPort(38080);
 	    serverConfig.setForceReinstall(forceReinstall);

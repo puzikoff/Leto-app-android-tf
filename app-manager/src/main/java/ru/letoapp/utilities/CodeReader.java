@@ -12,22 +12,22 @@ import org.apache.log4j.Logger;
 public class CodeReader {
 	public static final Logger Log = Logger.getLogger(CodeReader.class);
 	
-	public static String getCodeFromFile (String codeType) throws IOException{
+	public static String getCodeFromFile (String fromFileFlag, String mask, String code) throws IOException{
 		String otp = null;				
-		if(PropertyReader.getProperty("smsFromFile").equals("true")) {			
+		if(fromFileFlag.equals("true")) {			
 			File file = new File(PropertyReader.getProperty("smsCodePath"));
 			BufferedReader br = new BufferedReader (new InputStreamReader(new FileInputStream( file ), "UTF-8"));
 			while(br.readLine() != null) {	    	
 				otp = br.readLine();	    
 			}	    
 			br.close();		    
-			Pattern p = Pattern.compile("[0-9]{" + PropertyReader.getProperty("codeMask") + "," + PropertyReader.getProperty("codeMask") + "}");
+			Pattern p = Pattern.compile("[0-9]{" + mask + "," + mask + "}");
 			Matcher m = p.matcher(otp);	    
 			m.find();	   
 			otp = m.group(0);
 		}
-		if(PropertyReader.getProperty("smsFromFile").equals("false")) {
-			otp = PropertyReader.getProperty("SmsCode");			
+		if(fromFileFlag.equals("false")) {
+			otp = code;			
 		}
 		Log.info(otp);
 		return otp;
