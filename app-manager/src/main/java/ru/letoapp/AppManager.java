@@ -53,6 +53,7 @@ import ru.letoapp.screens.payments.PaymentToolChoiceScreen;
 import ru.letoapp.screens.payments.PaymentsAndTransfersScreen;
 import ru.letoapp.screens.payments.StatusScreen;
 import ru.letoapp.screens.payments.TransferScreen;
+import ru.letoapp.screens.payments.OrderCardScreen;
 import ru.letoapp.screens.registration.AccountCredentialsScreen;
 import ru.letoapp.screens.registration.CardCredentialsScreen;
 import ru.letoapp.screens.registration.DboScreen;
@@ -135,6 +136,7 @@ public class AppManager {
 	private SpecificLimitScreen specificLimitScreen;
 	private MobilePaymentScreen mobilePaymentScreen;
 	private TransferScreen transferScreen;
+	private OrderCardScreen orderCardScreen;
 		
 	public void init() {		
 		authScreen = new AuthScreen(driver);
@@ -191,6 +193,7 @@ public class AppManager {
 		specificLimitScreen = new SpecificLimitScreen(driver);
 		mobilePaymentScreen = new MobilePaymentScreen(driver);
 		transferScreen = new TransferScreen(driver);
+		orderCardScreen = new OrderCardScreen(driver);
 		
 	}
 	
@@ -411,6 +414,10 @@ public class AppManager {
 		return transferScreen;
 	}
 	
+	public OrderCardScreen getOrderCardScreen() {
+		return orderCardScreen;
+	}
+	
 	/* Starting Selendroid */
 	
 	public void startServer(String appPath, boolean forceReinstall, boolean noClearData, boolean deviceLog) 
@@ -450,8 +457,9 @@ public class AppManager {
 	    capabilities.setAut(appUnderTestId);
 	    if(emulator == true) {
 	    	capabilities.setEmulator(true);
-	    	//capabilities.setPlatformVersion(DeviceTargetPlatform.ANDROID10);
-	    	capabilities.setPlatformVersion(DeviceTargetPlatform.ANDROID19);
+	    	capabilities.setPlatformVersion(DeviceTargetPlatform.ANDROID10);
+	    	//capabilities.setPlatformVersion(DeviceTargetPlatform.ANDROID14);
+	    	//capabilities.setPlatformVersion(DeviceTargetPlatform.ANDROID19);
 	    }
 	    driver = new SelendroidDriver(new URL(serverUrl), capabilities); 
 	    waitDriver = new WebDriverWait(driver, 90);

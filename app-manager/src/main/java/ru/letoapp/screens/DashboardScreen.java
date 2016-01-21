@@ -16,6 +16,7 @@ public class DashboardScreen extends AppScreenBase {
 	By timelineBtn = By.id("button_feed");	
 	By paymentsBtn = By.id("button_payment");
 	By cardsListBtn = By.xpath("//TextView[@value='КАРТЫ']");	
+	By orderCardBtn = By.xpath("//TextView[@value='Заказать новую карту']");
 	By loansListBtn = By.xpath("//TextView[@value='КРЕДИТЫ']");
 	By depositsListBtn = By.xpath("//TextView[@value='СБЕРЕЖЕНИЯ И НАКОПЛЕНИЯ']");
 	By walletBtn = By.xpath("//TextView[@value='МОЙ КОШЕЛЁК']//..");
@@ -49,6 +50,12 @@ public class DashboardScreen extends AppScreenBase {
 			Log.error("Dashboard screen: No card with such name");
 			Assert.fail("Dashboard screen: No card with such name: " + cardName);
 		}
+	}
+	
+	public void orderCardBtnClick() throws Exception {
+		Log.info("Dashboard screen: Jrder card button click");
+		clickAndWaitSpinerToVanish(orderCardBtn);
+		delay();
 	}
 	
 	public void openLoan(String loanName) {

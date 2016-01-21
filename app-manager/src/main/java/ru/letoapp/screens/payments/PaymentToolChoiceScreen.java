@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import ru.letoapp.AppScreenBase;
-import ru.letoapp.utilities.PropertyReader;
-
 
 public class PaymentToolChoiceScreen extends AppScreenBase{
 	
